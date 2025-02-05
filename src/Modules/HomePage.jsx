@@ -77,7 +77,7 @@ const HomePage = () => {
               <p className="text-xl font-light px-4 py-2 bg-primary text-secondary ">Transforming Complex Data into Actionable Insights</p>
             </motion.div>
 
-            <motion.p variants={textRevealVariants} initial="hidden" animate="visible" className="text-primary/70 text-lg text-justify leading-relaxed">
+            <motion.p variants={textRevealVariants} initial="hidden" animate="visible" className="text-black/90 text-lg text-justify leading-relaxed">
               Welcome to Big Matrix Research, where we delve into the intricate world of mathematical modeling, computational methods, and machine learning to unravel the complexities of today's data-driven challenges. As a pioneering research group, we specialize in Model Order Reduction, Computational Methods in Control Theory, Matrix Equations, Mathematical Modeling, and Machine Learning applications. Our mission is to harness the power of big data and advanced computational techniques to develop innovative solutions that bridge theoretical frameworks with real-world applications. Through collaborative research endeavors and interdisciplinary approaches, we strive to push the boundaries of knowledge and empower industries across various domains. Join us on our journey as we navigate
               through the vast matrix of possibilities, transforming complex data into actionable insights for a brighter, more informed future.
             </motion.p>
@@ -103,12 +103,12 @@ const HomePage = () => {
               <motion.div
                 key={index}
                 variants={cardItemVariants}
-                whileHover={{ scale: 1.02 }} // Use Framer Motion's scale on hover
+                whileHover={{ scale: 1.02 }} 
                 className={`group flex flex-col items-center text-center p-6 rounded-xl shadow-sm border border-primary/10 hover:shadow-xl hover:border-primary/30 transform transition-all duration-300 ease-out`}
               >
                 <div className={`p-3 ${bgColor} rounded-full mb-4 ${hoverColor} group-hover:scale-110 group-hover:rotate-12 transform transition-all duration-300`}>{icon}</div>
-                <h2 className="text-xl font-semibold mb-4 text-primary group-hover:scale-105 transition-transform duration-300">{title}</h2>
-                <p className="text-primary/70 group-hover:text-primary/90 transition-colors duration-300">{description}</p>
+                <h2 className="text-2xl font-thin mb-4 text-primary group-hover:scale-105 transition-transform duration-300">{title}</h2>
+                <p className="text-black/70 group-hover:text-black/90 transition-colors duration-300">{description}</p>
               </motion.div>
             ))}
           </div>

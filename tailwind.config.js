@@ -20,18 +20,19 @@ export default {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
-        secondary: {
-          DEFAULT: "#ffffff", // White
-          foreground: "#000000", // Black (for contrast, if needed)
+        accent: {
+          DEFAULT: "#444444", // Darker gray (instead of white)
+          foreground: "#ffffff", // White for contrast
         },
         primary: {
-          DEFAULT: "#000000", // Black
-          foreground: "#ffffff", // White (for contrast)
+          DEFAULT: "#0d7a64", // Darker green (instead of #1bb69c)
+          foreground: "#ffffff", // White for contrast
         },
-        accent: {
-          DEFAULT: "#808080", // Grey (middle color between white and black)
-          foreground: "#ffffff", // White (for contrast)
+        secondary: {
+          DEFAULT: "#ffffff", // Darker green (slightly darker than primary)
+          foreground: "#ffffff", // White for contrast
         },
+
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
@@ -93,5 +94,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography')],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };

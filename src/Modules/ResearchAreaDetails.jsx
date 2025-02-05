@@ -56,7 +56,7 @@ const ResearchAreaDetails = () => {
                   )}
                 </div>
                 <div className="p-6">
-                  <motion.h3 className="text-xl font-semibold mb-3 text-primary">
+                  <motion.h3 className="md:text-2xl text-lg font-semibold  mb-3 text-primary">
                     {project.title}
                   </motion.h3>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">
@@ -108,7 +108,7 @@ const ResearchAreaDetails = () => {
                   />
                 </div>
                 <div className="p-8">
-                  <h2 className="text-3xl font-bold text-primary mb-4">
+                  <h2 className="text-3xl font-thin text-center text-primary mb-4">
                     {selectedProject.title}
                   </h2>
                   <div className="prose prose-lg max-w-none">

@@ -42,7 +42,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-secondary">
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-white">Big-Matrix</h3>
@@ -71,7 +71,7 @@ const Footer = () => {
 
           {/* Sitemap */}
           <div className="col-span-2">
-            <h4 className="text-lg font-semibold text-white mb-4">Sitemap</h4>
+            <h4 className="text-lg font-semibold text-white underline underline-offset-4 mb-4">Sitemap</h4>
             <div className="grid grid-cols-2 gap-4">
               {sitemapLinks.map(({ title, path }) => (
                 <Link
@@ -86,7 +86,7 @@ const Footer = () => {
           </div>
 
           {/* Newsletter */}
-          <div>
+          {/* <div>
             <h4 className="text-lg font-semibold text-white mb-4">Stay Updated</h4>
             <form className="space-y-3">
               <div className="relative">
@@ -95,11 +95,11 @@ const Footer = () => {
               </div>
               <Button variant="secondary">Subscribe</Button>
             </form>
-          </div>
+          </div> */}
         </div>
 
         {/* Copyright and Legal Links */}
-        <div className="mt-12 pt-8 border-t border-gray-700">
+        <div className="mt-12 pt-8 border-t border-white-700">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm">© {currentYear} Big-Matrix Research. All rights reserved.</p>
             <div className="flex gap-6">

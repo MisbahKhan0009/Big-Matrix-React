@@ -1,5 +1,5 @@
+/* eslint-disable */
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const ProjectSlider = ({ images, projectTitle }) => {

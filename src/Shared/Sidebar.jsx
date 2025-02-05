@@ -86,7 +86,7 @@ const Sidebar = () => {
         {isOpen && (
           <nav className="border-t border-secondary/10">
             <ul className="py-2">
-              // In the mobile navigation section
+              
               {menuItems.map((item, index) => {
                 const Icon = item.icon;
                 const isActive = item.path === "/shop" ? location.pathname === "/shop" || location.pathname === "/checkout" : item.path === "/projects" ? location.pathname === "/projects" || location.pathname.startsWith("/projects/") : item.path === "/research" ? location.pathname === "/research" || location.pathname.startsWith("/research/") : item.path === "/software" ? location.pathname === "/software" || location.pathname.startsWith("/software/") : location.pathname === item.path;
@@ -110,7 +110,7 @@ const Sidebar = () => {
       </div>
 
       {/* Desktop Sidebar */}
-      <div className="hidden lg:flex fixed left-0 top-0 h-full w-64 bg-primary text-secondary flex-col overflow-hidden">
+      <div className="hidden lg:flex fixed left-0 top-0 h-full w-64 shadow-lg bg-primary text-secondary flex-col overflow-hidden">
  
         <div className="p-2 border-b border-white">
           <div className="aspect-square w-full max-w-[180px] mx-auto">
