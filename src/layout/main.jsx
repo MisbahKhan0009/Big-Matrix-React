@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <div className="flex min-h-screen">
       <Sidebar />
-      <div className="flex flex-col flex-grow ml-64">
+      <div className="flex flex-col flex-grow md:ml-64">
         <main className="flex-grow">
           <Outlet />
         </main>

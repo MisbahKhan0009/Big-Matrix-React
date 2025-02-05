@@ -111,6 +111,7 @@ const Sidebar = () => {
 
       {/* Desktop Sidebar */}
       <div className="hidden lg:flex fixed left-0 top-0 h-full w-64 bg-primary text-secondary flex-col overflow-hidden">
+ 
         <div className="p-2 border-b border-white">
           <div className="aspect-square w-full max-w-[180px] mx-auto">
             <img src="/logo-white.png" alt="Big Matrix" className="w-full h-full object-contain" />
