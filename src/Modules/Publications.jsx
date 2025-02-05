@@ -86,16 +86,26 @@ const Publications = () => {
   return (
     <div>
       <Banner bannerText={"Publications"} bannerBg={"/publication.jpg"} bannerIcon={Paperclip} />
-      <div className="container mx-auto px-10 p-4">
+      <div className="container mx-auto px-4 sm:px-10 p-4 overflow-hidden">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 my-10">
           <div className="w-full md:w-1/3 relative">
-            <input type="text" placeholder="Search publications..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full py-2 pl-10 pr-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-primary/20 focus:border-primary/20" />
+            <input 
+              type="text" 
+              placeholder="Search publications..." 
+              value={searchQuery} 
+              onChange={(e) => setSearchQuery(e.target.value)} 
+              className="w-full py-2 pl-10 pr-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-primary/20 focus:border-primary/20" 
+            />
             <FontAwesomeIcon icon={faSearch} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           </div>
 
-          <div className="flex gap-4">
-            <div className="relative">
-              <select value={selectedPaperType} onChange={(e) => setSelectedPaperType(e.target.value)} className="appearance-none py-2 pl-3 pr-8 border border-gray-300 rounded-xl bg-white text-gray-700 focus:outline-none focus:ring-1 focus:ring-primary/20 focus:border-primary/20">
+          <div className="flex gap-4 w-full md:w-auto">
+            <div className="relative w-full md:w-auto">
+              <select 
+                value={selectedPaperType} 
+                onChange={(e) => setSelectedPaperType(e.target.value)} 
+                className="w-full md:w-auto appearance-none py-2 pl-3 pr-8 border border-gray-300 rounded-xl bg-white text-gray-700 focus:outline-none focus:ring-1 focus:ring-primary/20 focus:border-primary/20"
+              >
                 {getUniquePaperTypes().map((type) => (
                   <option key={type} value={type}>
                     {type}
@@ -107,23 +117,39 @@ const Publications = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 max-w-full overflow-hidden">
           {currentCards.map((publication) => (
             <PublicationCard key={publication.paper_id} publication={publication} onOpenModal={handleOpenModal} />
           ))}
         </div>
 
         {totalPages > 1 && (
-          <div className="flex justify-center mt-16 mb-10 gap-2">
-            <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1} className="px-4 py-2 border border-primary text-primary disabled:opacity-50 disabled:cursor-not-allowed">
+          <div className="flex flex-wrap justify-center mt-16 mb-10 gap-2">
+            <button 
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} 
+              disabled={currentPage === 1} 
+              className="px-4 py-2 border border-primary text-primary disabled:opacity-50 disabled:cursor-not-allowed"
+            >
               Previous
             </button>
-            {[...Array(totalPages)].map((_, index) => (
-              <button key={index + 1} onClick={() => setCurrentPage(index + 1)} className={`w-10 h-10 rounded-lg ${currentPage === index + 1 ? "bg-primary text-white" : "border border-primary text-primary"}`}>
-                {index + 1}
-              </button>
-            ))}
-            <button onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages} className="px-4 py-2 border border-primary text-primary disabled:opacity-50 disabled:cursor-not-allowed">
+            <div className="flex flex-wrap gap-2 justify-center">
+              {[...Array(totalPages)].map((_, index) => (
+                <button 
+                  key={index + 1} 
+                  onClick={() => setCurrentPage(index + 1)} 
+                  className={`w-8 sm:w-10 h-8 sm:h-10 rounded-lg ${
+                    currentPage === index + 1 ? "bg-primary text-white" : "border border-primary text-primary"
+                  }`}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+            <button 
+              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))} 
+              disabled={currentPage === totalPages} 
+              className="px-4 py-2 border border-primary text-primary disabled:opacity-50 disabled:cursor-not-allowed"
+            >
               Next
             </button>
           </div>

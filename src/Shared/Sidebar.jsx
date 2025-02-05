@@ -72,13 +72,13 @@ const Sidebar = () => {
     <>
       {/* Mobile Navbar */}
       <div className="lg:hidden fixed top-0 left-0 right-0 bg-primary text-secondary z-50">
-        <div className="flex items-center justify-between p-4">
-          <div className="flex items-center gap-4">
-            <img src="/logo-white.png" alt="Big Matrix" className="h-10 w-10" />
-            <span className="font-light">BIG MATRIX RESEARCH</span>
+        <div className="flex items-center justify-between p-4 max-w-full mx-auto">
+          <div className="flex items-center gap-2 z-50">
+            <img src="/logo-white.png" alt="Big Matrix" className="h-8 w-8" />
+            <span className="font-light text-sm whitespace-nowrap">BIG MATRIX RESEARCH</span>
           </div>
 
-          <button onClick={() => setIsOpen(!isOpen)} className="p-2">
+          <button onClick={() => setIsOpen(!isOpen)} className="p-2 z-50">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -137,7 +137,16 @@ const Sidebar = () => {
           <ul className="relative z-10">
             {menuItems.map((item, index) => {
               const Icon = item.icon;
-              const isActive = item.path === "/shop" ? location.pathname === "/shop" || location.pathname === "/checkout" : item.path === "/projects" ? location.pathname === "/projects" || location.pathname.startsWith("/projects/") : item.path === "/research" ? location.pathname === "/research" || location.pathname.startsWith("/research/") : location.pathname === item.path;
+              const isActive = item.path === "/shop" 
+              ? location.pathname === "/shop" || location.pathname === "/checkout"
+              : item.path === "/projects"
+              ? location.pathname === "/projects" || location.pathname.startsWith("/projects/")
+              : item.path === "/research"
+              ? location.pathname === "/research" || location.pathname.startsWith("/research/")
+              : item.path === "/software"
+              ? location.pathname === "/software" || location.pathname.startsWith("/software/")
+              : location.pathname === item.path;
+              
               return (
                 <li key={item.path} className="h-12">
                   <Link to={item.path} className="flex items-center h-full gap-4 px-6 transition-colors duration-300">
@@ -165,3 +174,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
