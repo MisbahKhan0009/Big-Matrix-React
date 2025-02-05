@@ -1,0 +1,153 @@
+{
+  "areas": [
+    {
+      "id": "ai-healthcare",
+      "title": "AI in Healthcare",
+      "description": "Exploring innovative applications of artificial intelligence in healthcare, focusing on diagnostic tools, patient care optimization, and medical image analysis.",
+      "image": "/ai-healthcare.jpg",
+      "projects": [
+        {
+          "id": 1,
+          "title": "Comprehensive Breast Cancer Assessment via Multimodal Segmentation and Clinical Prediction Models",
+          "description": "This project focuses on building a multimodal deep learning framework to improve breast cancer diagnosis by combining image segmentation and clinical data analysis. The model will process mammography images and corresponding patient data to perform segmentation and predict relevant clinical features. This integrative approach aims to enhance diagnostic accuracy and provide a comprehensive assessment for breast cancer evaluation.",
+          "images": ["/Breast Cancer.jpeg", "/Breast Cancer 2.jpeg"]
+        },
+        {
+          "id": 2,
+          "title": "Automated Structure Contouring in Radiotherapy Using Whole-Body CT Imaging",
+          "description": "This project focuses on developing a deep learning framework for advanced segmentation in radiotherapy, utilizing whole-body CT scans and structure contouring masks. The model aims to automate the prediction of anatomical and cancerous structure contours, enhancing precision and efficiency in radiotherapy planning.",
+          "images": ["/Radiotherapy.jpeg", "/Radiotherapy2.jpeg"]
+        },
+        {
+          "id": 3,
+          "title": "Comprehensive Single-Cell RNA Sequencing Analysis of Breast Cancer and Neuroblastoma",
+          "description": "This project focuses on the comprehensive analysis of single-cell RNA sequencing data from breast cancer and neuroblastoma patients. It aims to perform cell type annotation, classification, differential gene expression analysis, trajectory analysis, cancer subtype discovery, and biomarker identification, providing deep insights into the cellular and molecular landscapes of these cancers.",
+          "images": ["/RNA.jpeg", "/RNA2.jpeg"]
+        },
+        {
+          "id": 4,
+          "title": "Intelligent Report Generation from Breast Mammography Using NLP and Predictive Modeling",
+          "description": "This project focuses on using natural language processing (NLP) to automate the generation of breast mammography reports. It involves extracting tabular data from the reports, predicting key clinical features, and ultimately generating comprehensive reports based on these predictions, streamlining the diagnostic workflow.",
+          "images": []
+        },
+        {
+          "id": 5,
+          "title": "Automated Structure Contouring in Radiotherapy Using Whole-Body CT Imaging",
+          "description": "This project focuses on developing a deep learning framework for advanced segmentation in radiotherapy, utilizing whole-body CT scans and structure contouring masks. The model aims to automate the prediction of anatomical and cancerous structure contours, enhancing precision and efficiency in radiotherapy planning.",
+          "images": []
+        },
+        {
+          "id": 6,
+          "title": "Multimodal Approach to Brain CT Diagnosis: Predicting Key Features from Images and Reports",
+          "description": "This project focuses on developing a multimodal deep learning framework to classify brain CT diagnoses by integrating image analysis and report feature prediction. The model will predict the diagnosis from brain CT images and extract key features from corresponding reports, enhancing diagnostic accuracy and providing a comprehensive assessment for clinical decision-making.",
+          "images": []
+        }
+      ]
+    },
+    {
+      "id": "deep-learning",
+      "title": "Machine Learning & Deep Learning Algorithm",
+      "description": "Advancing the frontiers of deep learning through innovative architectures, algorithms, and applications in various domains.",
+      "image": "deep-learning.jpg",
+      "projects": [
+        {
+          "id": 1,
+          "title": "Neural Architecture Design",
+          "description": "Research on novel neural network architectures for improved performance and efficiency."
+        },
+        {
+          "id": 2,
+          "title": "Transfer Learning Methods",
+          "description": "Development of advanced transfer learning techniques for resource-constrained applications."
+        }
+      ]
+    },
+    {
+      "id": "mathematical-model",
+      "title": "Mathematical Modeling",
+      "description": "Developing sophisticated mathematical models and computational methods to solve complex real-world problems in science and engineering.",
+      "image": "photos/m2m.png",
+      "projects": [
+        {
+          "id": 1,
+          "title": "Numerical Analysis Framework",
+          "description": "Advanced computational methods for solving differential equations in engineering applications."
+        },
+        {
+          "id": 2,
+          "title": "Optimization Algorithms",
+          "description": "Novel mathematical models for complex system optimization and decision making."
+        }
+      ]
+    },
+    {
+      "id": "mor-dynamical-system",
+      "title": "MOR of Large-Scale Dynamical System",
+      "description": "Model order reduction (MOR) is a technique for reducing the computational complexity of mathematical models in numerical simulations. As such it is closely related to the concept of metamodeling, with applications in all areas of mathematical modelling. Many modern mathematical models of real-life processes pose challenges when used in numerical simulation.",
+      "image": "/photos/mor.jpg",
+      "projects": [
+        {
+          "id": 1,
+          "title": "MOR of First & Second Order LTI System",
+          "description": "Advanced techniques for model order reduction of Linear Time-Invariant systems, focusing on both first and second-order systems."
+        },
+        {
+          "id": 2,
+          "title": "MOR of First & Second Order DAEs",
+          "description": "Specialized methods for reducing Differential Algebraic Equations (DAEs) while maintaining system stability and accuracy."
+        },
+        {
+          "id": 3,
+          "title": "Gramian & Interpolation Based MOR",
+          "description": "Implementation of Gramian-based and interpolation-based techniques for efficient model order reduction."
+        }
+      ]
+    },
+    {
+      "id": "sparse-matrix-solver",
+      "title": "Sparse Matrix Solver",
+      "description": "In control theory, computational methods refer to the techniques and algorithms used to analyze, design, and implement control systems using computers. These methods involve the application of mathematical models, simulations, and algorithms to study the behavior of dynamic systems and to design controllers that can regulate or manipulate their behavior.",
+      "image": "/photos/sm.jpg",
+      "projects": [
+        {
+          "id": 1,
+          "title": "Linear System",
+          "description": "Advanced computational methods for solving large-scale sparse linear systems efficiently."
+        },
+        {
+          "id": 2,
+          "title": "Lyapunov Equation",
+          "description": "Specialized algorithms for solving Lyapunov equations in control system analysis and design."
+        },
+        {
+          "id": 3,
+          "title": "Algebraic Riccati Equation",
+          "description": "Numerical methods for solving continuous and discrete-time algebraic Riccati equations."
+        }
+      ]
+    },
+    {
+      "id": "Tools & Software",
+      "title": "Tools & Software",
+      "description": "In control theory, computational methods refer to the techniques and algorithms used to analyze, design, and implement control systems using computers. These methods involve the application of mathematical models, simulations, and algorithms to study the behavior of dynamic systems and to design controllers that can regulate or manipulate their behavior.",
+      "image": "/photos/sm.jpg",
+      "projects": [
+        {
+          "id": 1,
+          "title": "Linear System",
+          "description": "Advanced computational methods for solving large-scale sparse linear systems efficiently."
+        },
+        {
+          "id": 2,
+          "title": "Lyapunov Equation",
+          "description": "Specialized algorithms for solving Lyapunov equations in control system analysis and design."
+        },
+        {
+          "id": 3,
+          "title": "Algebraic Riccati Equation",
+          "description": "Numerical methods for solving continuous and discrete-time algebraic Riccati equations."
+        }
+      ]
+    }
+  ]
+}

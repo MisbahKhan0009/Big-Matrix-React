@@ -1,0 +1,27 @@
+[
+  {
+    "dataClass": "Airfoil Data",
+    "dataName": "NACA 0012 Airfoil Dataset",
+    "repositoryLink": "https://github.com/big-matrix/airfoil-data-naca0012"
+  },
+  {
+    "dataClass": "Airfoil Data",
+    "dataName": "Multi-Element Airfoil Dataset",
+    "repositoryLink": "https://github.com/big-matrix/multi-element-airfoil"
+  },
+  {
+    "dataClass": "Neural Network",
+    "dataName": "Aircraft Wing Shape Dataset",
+    "repositoryLink": "https://github.com/big-matrix/wing-shape-data"
+  },
+  {
+    "dataClass": "Neural Network",
+    "dataName": "Flow Field Prediction Data",
+    "repositoryLink": "https://github.com/big-matrix/flow-field-data"
+  },
+  {
+    "dataClass": "Deep Learning",
+    "dataName": "MRI Image Segmentation Dataset",
+    "repositoryLink": "https://github.com/big-matrix/mri-segmentation"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "software": [
+    {
+      "id": 1,
+      "title": "Web-Based MRI Analysis Software",
+      "shortDescription": "Advanced medical imaging analysis tool for healthcare professionals",
+      "longDescription": "Our Web-Based MRI Analysis Software is a comprehensive solution for medical professionals, offering state-of-the-art image processing capabilities and intuitive analysis tools. This platform enables efficient diagnosis and research in neuroimaging.",
+      "image": "/photos/segmenter_website.PNG",
+      "features": [
+        "Real-time MRI image processing",
+        "Advanced segmentation algorithms",
+        "Cloud-based storage and sharing",
+        "Collaborative analysis tools",
+        "HIPAA-compliant security"
+      ],
+      "technologies": ["React", "Python", "TensorFlow", "Docker", "AWS"],
+      "demoLink": "https://demo.mrianalyzer.com",
+      "documentationLink": "https://docs.mrianalyzer.com"
+    }
+  ]
+}
