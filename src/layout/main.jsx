@@ -6,8 +6,8 @@ const Main = () => {
   return (
     <div className="flex min-h-screen">
       <Sidebar />
-      <div className="flex flex-col flex-grow md:ml-64">
-        <main className="flex-grow">
+      <div className="flex flex-col flex-grow lg:ml-64">
+        <main className="flex-grow pt-[60px] lg:pt-0"> {/* Added padding-top for mobile/tablet */}
           <Outlet />
         </main>
         <Footer />

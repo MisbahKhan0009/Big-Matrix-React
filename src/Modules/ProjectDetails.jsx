@@ -10,23 +10,28 @@ const ProjectDetails = () => {
   if (!project) {
     return <div>Project not found</div>;
   }
+  const getAcronym = (name) => {
+    return name
+      .split(" ") // Split by spaces
+      .map((word) => word[0]?.toUpperCase()) // Take the first letter of each word
+      .join(""); // Join them together
+  };
 
   return (
     <div>
-      <Banner bannerText={project.projectname} bannerBg={project.project_banne || "/project.jpg"} />
-
+      <Banner bannerText={"Project"} bannerBg={project.project_banne || "/project.jpg"} />;
       <div className="container mx-auto px-6 py-12">
-        <div className="bg-white rounded-xl shadow-lg p-8">
+        <div className="bg-white p-8">
           {/* Project Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-semibold mb-4">{project.projectname}</h1>
-            <p className="text-gray-600">Project ID: {project.projectid}</p>
+            <h1 className="md:text-3xl text-xl text-center font-semibold mb-4">{project.projectname}</h1>
+            <p className="text-gray-600 text-center">Project ID: {project.projectid}</p>
           </div>
 
           {/* Project Info */}
           <div className="grid gap-8">
             <div>
-              <h2 className="text-xl font-medium mb-4">Project Information</h2>
+              <h2 className="text-xl text-center mx-auto  bg-primary/10 w-fit p-1 rounded-lg font-medium mb-6">Project Information</h2>
               <div className="space-y-4">
                 <div>
                   <h3 className="font-medium">Funded by</h3>
@@ -74,7 +79,7 @@ const ProjectDetails = () => {
             {project.project_outcome && project.project_outcome !== "N/A" && (
               <div>
                 <h2 className="text-xl font-medium mb-4">Project Outcome</h2>
-                <p className="text-gray-600 leading-relaxed">{project.project_outcome}</p>
+                <p className="text-gray-600 text-justify leading-relaxed">{project.project_outcome}</p>
               </div>
             )}
           </div>

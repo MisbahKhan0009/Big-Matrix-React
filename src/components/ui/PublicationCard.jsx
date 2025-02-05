@@ -11,10 +11,10 @@ const PublicationCard = ({ publication, onOpenModal }) => {
     <motion.div className="bg-white p-4 border-b border-gray-200 hover:bg-gray-50" whileHover={{ scale: 1.01 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
       <div className="flex justify-between items-start gap-4">
         <div className="flex-1">
-          <h3 className="text-xl font-medium text-gray-900 mb-1">{publication.paper_title}</h3>
-          <p className="text-sm bg-gray-300 border-l-2 border-l-primary w-fit px-2 text-gray-600 mb-2">{publication.author_name}</p>
+          <h3 className="md:text-xl text-base font-medium text-gray-900 mb-1">{publication.paper_title}</h3>
+          <p className="md:text-sm text-xs bg-gray-300 border-l-2 border-l-primary w-fit px-2 text-gray-600 mb-2">{publication.author_name}</p>
 
-          <p className="text-sm text-green-600 bg-green-500/10 p-1 rounded-full w-fit">
+          <p className="md:text-sm text-xs text-green-600 bg-green-500/10 p-1 rounded-full w-fit">
             {publication.journal_name}, {publication.year}
           </p>
         </div>

@@ -20,7 +20,7 @@ const Projects = () => {
   return (
     <div>
       <Banner bannerText={"Projects"} bannerBg={"/project.jpg"} bannerIcon={FlaskConical} />
-      <div className="container mx-auto p-6">
+      <div className="container mx-auto ">
         {Object.entries(groupedProjects).map(([status, projects]) => (
           <div key={status} className="m-12 text-4xl">
             <h2 className="text-3xl font-light mb-6 text-center">

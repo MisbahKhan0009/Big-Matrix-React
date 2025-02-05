@@ -15,6 +15,8 @@ const SoftwareDetails = () => {
 
   return (
     <div>
+
+
       <Banner bannerText={software.title} bannerBg={software.image} bannerIcon={Code2} />
       <div className="container mx-auto px-4 py-12">
         <motion.div 
@@ -54,7 +56,7 @@ const SoftwareDetails = () => {
               </div>
             )}
 
-            // Replace ExternalLink with ArrowUpRightFromSquare in the JSX:
+            
             <div className="flex gap-4 mt-8">
               {software.demoLink && (
                 <a 
@@ -81,6 +83,7 @@ const SoftwareDetails = () => {
         </motion.div>
       </div>
     </div>
+
   );
 };
 

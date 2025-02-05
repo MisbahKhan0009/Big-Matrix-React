@@ -59,46 +59,48 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-secondary">
+    <div className="min-h-screen bg-secondary overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden pt-16 lg:pt-0">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-primary/[0.02] -z-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-secondary -z-10" />
 
-        <div className="container mx-auto h-screen flex items-center justify-center px-4 py-24 relative">
-          <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-8">
-            <motion.h1 variants={textRevealVariants} initial="hidden" animate="visible" className="text-6xl font-bold tracking-tight text-primary sm:text-6xl">
+        <div className="container mx-auto min-h-screen flex items-center justify-center px-4 py-12 lg:py-24 relative">
+          <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-6 lg:space-y-8">
+            <motion.h1 
+              variants={textRevealVariants} 
+              initial="hidden" 
+              animate="visible" 
+              className="text-4xl lg:text-6xl font-bold tracking-tight text-primary"
+            >
               BIG MATRIX RESEARCH
             </motion.h1>
-
-            <motion.div variants={textRevealVariants} initial="hidden" animate="visible" className="relative overflow-hidden whitespace-nowrap py-6">
-              {/* Text container with animation */}
-              <p className="text-xl font-light px-4 py-2 bg-primary text-secondary ">Transforming Complex Data into Actionable Insights</p>
+            <motion.div variants={textRevealVariants} initial="hidden" animate="visible" className="relative overflow-hidden w-fit px-4">
+              <p className="text-lg lg:text-xl font-light px-4 py-2 bg-primary text-secondary">
+                Transforming Complex Data into Actionable Insights
+              </p>
             </motion.div>
-
-            <motion.p variants={textRevealVariants} initial="hidden" animate="visible" className="text-primary/70 text-lg text-justify leading-relaxed">
+            <motion.p variants={textRevealVariants} initial="hidden" animate="visible" className="text-primary/70 text-base lg:text-lg text-justify leading-relaxed px-4">
               Welcome to Big Matrix Research, where we delve into the intricate world of mathematical modeling, computational methods, and machine learning to unravel the complexities of today's data-driven challenges. As a pioneering research group, we specialize in Model Order Reduction, Computational Methods in Control Theory, Matrix Equations, Mathematical Modeling, and Machine Learning applications. Our mission is to harness the power of big data and advanced computational techniques to develop innovative solutions that bridge theoretical frameworks with real-world applications. Through collaborative research endeavors and interdisciplinary approaches, we strive to push the boundaries of knowledge and empower industries across various domains. Join us on our journey as we navigate
               through the vast matrix of possibilities, transforming complex data into actionable insights for a brighter, more informed future.
             </motion.p>
-
-            <motion.div variants={textRevealVariants} initial="hidden" animate="visible" className="flex py-4 gap-4">
-              <Button effect="gooeyLeft" size="lg" className="bg-primary text-xl font-light text-secondary hover:bg-primary/90">
+            <motion.div variants={textRevealVariants} initial="hidden" animate="visible" className="flex flex-col sm:flex-row py-4 gap-4 px-4">
+              <Button effect="gooeyLeft" size="lg" className="bg-primary text-lg lg:text-xl font-light text-secondary hover:bg-primary/90">
                 Explore Research
               </Button>
-              <Button variant="outline" effect="hoverUnderline" size="lg" className="border-primary text-xl font-light text-primary hover:bg-primary/10">
+              <Button variant="outline" effect="hoverUnderline" size="lg" className="border-primary text-lg lg:text-xl font-light text-primary hover:bg-primary/10">
                 Learn More
               </Button>
             </motion.div>
           </div>
         </div>
       </section>
-
       {/* Features Section */}
-      <section className="py-24 min-h-screen mx-auto w-4/5" ref={featuresRef}>
-        <motion.div variants={cardRevealVariants} initial="hidden" animate={isInView ? "visible" : "hidden"} className="container px-4">
-          <h1 className="text-5xl font-light text-center mb-12">Mission & Vision</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="py-12 lg:py-24 px-4 lg:px-0 min-h-screen mx-auto w-full lg:w-4/5" ref={featuresRef}>
+        <motion.div variants={cardRevealVariants} initial="hidden" animate={isInView ? "visible" : "hidden"} className="container">
+          <h1 className="text-4xl lg:text-5xl font-light text-center mb-8 lg:mb-12">Mission & Vision</h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {cardData.map(({ title, description, icon, bgColor, iconColor, hoverColor }, index) => (
               <motion.div
                 key={index}
