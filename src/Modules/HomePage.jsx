@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { useRef } from "react";
 import { Button } from "../components/ui/button";
+import { SparklesCore } from "../components/ui/sparkles";
 import { Target, Lightbulb, ShieldCheck, Flag } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 
@@ -67,25 +68,39 @@ const HomePage = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-secondary -z-10" />
 
         <div className="container mx-auto min-h-screen flex items-center justify-center px-4 py-12 lg:py-24 relative">
-          <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-6 lg:space-y-8">
-            <motion.h1 
-              variants={textRevealVariants} 
-              initial="hidden" 
-              animate="visible" 
-              className="text-4xl lg:text-6xl font-bold tracking-tight text-primary"
-            >
+          <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto space-y-6 lg:space-y-8">
+            {/* BIG MATRIX RESEARCH with Sparkle Effect */}
+            <motion.h1 variants={textRevealVariants} initial="hidden" animate="visible" className="text-4xl flex flex-col items-center justify-center lg:text-6xl font-bold tracking-tight text-primary relative">
               BIG MATRIX RESEARCH
+              {/* Gradient Lines and Sparkles Container */}
+              {/* <div className="relative mt-2 w-full h-16 flex items-center justify-center">
+               
+                <div className="absolute top-0 bg-gradient-to-r from-transparent via-[#0d7a64] to-transparent h-[2px] blur-sm" />
+                <div className="absolute top-0 bg-gradient-to-r from-transparent via-[#0d7a64] to-transparent h-px w-1/2" />
+                <div className="absolute top-0 bg-gradient-to-r from-transparent via-[#0d7a64] to-transparent h-[5px] w-1/4 blur-sm" />
+                <div className="absolute top-0 bg-gradient-to-r from-transparent via-[#0d7a64] to-transparent h-px w-1/4" />
+
+                
+                <div className="absolute w-full flex justify-center" style={{ top: "8px" }}>
+                  <SparklesCore background="transparent" minSize={0.4} maxSize={1} particleDensity={2000} className="w-1/2 h-8" particleColor="#000000" />
+                </div>
+
+                <div className="absolute inset-0 w-full h-full [mask-image:radial-gradient(250px_150px_at_center,transparent_20%,white)]" />
+              </div> */}
             </motion.h1>
+
+            {/* Tagline */}
             <motion.div variants={textRevealVariants} initial="hidden" animate="visible" className="relative overflow-hidden w-fit px-4">
-              <p className="text-lg lg:text-xl font-light px-4 py-2 bg-primary text-secondary">
-                Transforming Complex Data into Actionable Insights
-              </p>
+              <p className="text-lg lg:text-xl font-light px-4 py-2 bg-primary text-secondary">Transforming Complex Data into Actionable Insights</p>
             </motion.div>
 
+            {/* Description */}
             <motion.p variants={textRevealVariants} initial="hidden" animate="visible" className="text-black/90 text-lg text-justify leading-relaxed">
               Welcome to Big Matrix Research, where we delve into the intricate world of mathematical modeling, computational methods, and machine learning to unravel the complexities of today's data-driven challenges. As a pioneering research group, we specialize in Model Order Reduction, Computational Methods in Control Theory, Matrix Equations, Mathematical Modeling, and Machine Learning applications. Our mission is to harness the power of big data and advanced computational techniques to develop innovative solutions that bridge theoretical frameworks with real-world applications. Through collaborative research endeavors and interdisciplinary approaches, we strive to push the boundaries of knowledge and empower industries across various domains. Join us on our journey as we navigate
               through the vast matrix of possibilities, transforming complex data into actionable insights for a brighter, more informed future.
             </motion.p>
+
+            {/* Buttons */}
             <motion.div variants={textRevealVariants} initial="hidden" animate="visible" className="flex flex-col sm:flex-row py-4 gap-4 px-4">
               <Button effect="gooeyLeft" size="lg" className="bg-primary text-lg lg:text-xl font-light text-secondary hover:bg-primary/90">
                 Explore Research
@@ -103,15 +118,10 @@ const HomePage = () => {
           <h1 className="text-4xl lg:text-5xl font-light text-center text-primary mb-8 lg:mb-12">Mission & Vision</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {cardData.map(({ title, description, icon, bgColor, iconColor, hoverColor }, index) => (
-              <motion.div
-                key={index}
-                variants={cardItemVariants}
-                whileHover={{ scale: 1.02 }} 
-                className={`group flex flex-col items-center text-center p-6 rounded-xl shadow-sm border border-primary/10 hover:shadow-xl hover:border-primary/30 transform transition-all duration-300 ease-out`}
-              >
+              <motion.div key={index} variants={cardItemVariants} whileHover={{ scale: 1.02 }} className={`group flex flex-col items-center text-center p-6 rounded-xl shadow-sm border border-primary/10 hover:shadow-xl hover:border-primary/30 transform transition-all duration-300 ease-out`}>
                 <div className={`p-3 ${bgColor} rounded-full mb-4 ${hoverColor} group-hover:scale-110 group-hover:rotate-12 transform transition-all duration-300`}>{icon}</div>
                 <h2 className="text-2xl font-thin mb-4 text-primary group-hover:scale-105 transition-transform duration-300">{title}</h2>
-                <p className="text-black/70 group-hover:text-black/90 transition-colors duration-300">{description}</p>
+                <p className="text-black/70 group-hover:text-black/90 text-justify transition-colors duration-300">{description}</p>
               </motion.div>
             ))}
           </div>
