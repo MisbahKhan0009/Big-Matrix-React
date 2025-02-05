@@ -14,7 +14,7 @@ const Footer = () => {
   ];
 
   const contactInfo = [
-    { icon: Mail, text: "contact@Big-Matrix.com", label: "Email" },
+    { icon: Mail, text: "monirresearchlab@gmail.com", label: "Email" },
     { icon: Phone, text: "+1 (555) 123-4567", label: "Phone" },
     { icon: MapPin, text: "Bashundhara, Dhaka-1229, Bangladesh", label: "Address" },
   ];
@@ -74,13 +74,15 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-white underline underline-offset-4 mb-4">Sitemap</h4>
             <div className="grid grid-cols-2 gap-4">
               {sitemapLinks.map(({ title, path }) => (
-                <Link
-                  key={path}
-                  to={path}
-                  className="hover:text-white transition-colors"
-                >
-                  {title}
-                </Link>
+               <Link
+               key={path}
+               to={path}
+               className="relative w-fit inline-block text-white transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px] before:bg-white before:transition-all before:duration-300 hover:before:w-full"
+             >
+               {title}
+             </Link>
+             
+              
               ))}
             </div>
           </div>
