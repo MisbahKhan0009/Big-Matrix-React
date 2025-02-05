@@ -12,7 +12,7 @@ const Research = () => {
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-3xl font-bold text-center mb-12 text-primary"
+          className="text-6xl font-thin text-center mb-12 text-primary"
         >
           Our Research Focus Areas
         </motion.h2>

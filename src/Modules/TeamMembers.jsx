@@ -27,7 +27,7 @@ const TeamMembers = () => {
   return (
     <div>
       <Banner bannerText={"Team Members"} bannerBg={"/team.png"} bannerIcon={Users} />
-      <div className="container w-11/12 max-w-7xl mx-auto">
+      <div className="container w-11/12  mx-auto">
         {Object.entries(groupedMembers).map(([position, members]) => (
           <div key={position} className="mb-8">
             <h2 className="text-5xl font-light text-center mt-4 capitalize">{position}</h2>

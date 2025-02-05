@@ -24,9 +24,9 @@ const ResearchAreaDetails = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-5xl mx-auto"
+          className="max-w-10/12 mx-auto"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {area.projects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -40,7 +40,7 @@ const ResearchAreaDetails = () => {
                   {project.images && project.images.length > 0 ? (
                     <div className="w-full h-full">
                       <img
-                        src={project.images[0]}  // Use imported image if necessary
+                        src={project.images[0]}  
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                         loading="lazy"

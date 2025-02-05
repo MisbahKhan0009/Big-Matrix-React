@@ -21,9 +21,9 @@ const ProductCard = ({ product, onAddToCart }) => {
         <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
         <p className="text-gray-600 mb-4">{product.description}</p>
         <div className="flex flex-col gap-4">
-          <div className="flex items-center justify-between">
-            <span className="text-xl font">৳{product.price}</span>
-            <div className="flex items-center gap-2">
+          <div className="flex flex-col items-center justify-between">
+            <span className="text-2xl text-center font">৳{product.price}</span>
+            {/* <div className="flex items-center gap-2">
               <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="w-8 h-8 flex items-center justify-center border rounded hover:bg-gray-100">
                 <Minus className="h-4 w-4" />
               </button>
@@ -31,7 +31,7 @@ const ProductCard = ({ product, onAddToCart }) => {
               <button onClick={() => setQuantity(quantity + 1)} className="w-8 h-8 flex items-center justify-center border rounded hover:bg-gray-100">
                 <Plus className="h-4 w-4" />
               </button>
-            </div>
+            </div> */}
           </div>
           <button
             onClick={() => {

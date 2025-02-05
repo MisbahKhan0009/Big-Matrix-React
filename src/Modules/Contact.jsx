@@ -1,65 +1,82 @@
 /* eslint-disable */
-
+import { useState, useRef, useMemo } from "react";
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-
-// fix marker
-import icon from "leaflet/dist/images/marker-icon.png";
-import iconShadow from "leaflet/dist/images/marker-shadow.png";
+import emailjs from "@emailjs/browser"; // Import EmailJS
 import Banner from "../Shared/Banner";
 import { Send } from "lucide-react";
 
-let DefaultIcon = L.icon({
-  iconUrl: icon,
-  shadowUrl: iconShadow,
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
+// Fix Leaflet Marker issue
+import icon from "leaflet/dist/images/marker-icon.png";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
+import { toast } from "sonner";
 
 const Contact = () => {
   const position = [23.81538695, 90.42610594544826];
+  const formRef = useRef(); // Form reference
+
+  const DefaultIcon = useMemo(() => L.icon({ iconUrl: icon, shadowUrl: iconShadow }), []);
+
+  // Handle form submission
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, formRef.current, import.meta.env.VITE_EMAILJS_PUBLIC_KEY).then(
+      (result) => {
+        toast.success("Email sent successfully!");
+        formRef.current.reset();
+      },
+      (error) => {
+        toast.error("Failed to send email. Please try again.");
+      }
+    );
+  };
 
   return (
-    <div >
-      <Banner bannerText={"Contact"} bannerBg={"/public/contact.jpg"} bannerIcon={Send} />
-      <div className="container mx-auto justify-center items-center px-4 py-8 flex flex-col  gap-8">
+    <div>
+      <Banner bannerText="Contact" bannerBg={"/public/contact.jpg"} bannerIcon={Send} />
+
+      <div className="container mx-auto flex flex-col items-center py-8">
         {/* Map Section */}
-        <div className="md:w-3/4 rounded-lg shadow-md overflow-hidden">
+        <div className="md:w-10/12 rounded-lg shadow-md overflow-hidden">
           <MapContainer center={position} zoom={17} style={{ height: "500px", width: "100%" }}>
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"  />
-            <Marker position={position}></Marker>
+            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+            <Marker position={position} icon={DefaultIcon} />
             <ChangeView center={position} />
           </MapContainer>
           <div className="p-3 text-gray-700 text-sm bg-gray-50 border-t border-gray-200">
-            <span className="font-semibold">SAC-1025, North South University</span>
+            <span className="font-semibold">
+              SAC-1025, North South University
+              <br />
+              Bashundhara, Dhaka-1229, Bangladesh
+            </span>
           </div>
         </div>
 
         {/* Form Section */}
-        <div className="md:w-3/4 space-y-4">
-          <input type="text" placeholder="Your Name" className="w-full p-3 border rounded focus:ring-primary focus:border-primary bg-white" />
-          <input type="email" placeholder="Your Email" className="w-full p-3 border rounded focus:ring-primary focus:border-primary bg-white" />
-          <input type="text" placeholder="Subject" className="w-full p-3 border rounded focus:ring-primary focus:border-primary bg-white" />
-          <textarea placeholder="Your Message" className="w-full p-3 border rounded focus:ring-primary focus:border-primary bg-white" rows="5" />
-          <button className="bg-primary text-white py-3 px-6 rounded hover:bg-primary/90 transition-colors">Send Email</button>
-        </div>
-      </div>
-      <div className="flex justify-end p-4">
-        <button className="bg-primary text-white p-3 rounded-full hover:bg-primary/90 transition-colors" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-          </svg>
-        </button>
+        <form ref={formRef} onSubmit={sendEmail} className="md:w-10/12 space-y-4">
+          <InputField type="text" name="name" placeholder="Your Name" required />
+          <InputField type="email" name="email" placeholder="Your Email" required />
+          <InputField type="text" name="subject" placeholder="Subject" required />
+          <textarea name="message" placeholder="Your Message" className="w-full p-3 border rounded focus:ring-primary focus:border-primary bg-white" rows="5" required />
+          <button type="submit" className="bg-primary text-white py-3 px-6 rounded hover:bg-primary/90 transition-colors">
+            Send Email
+          </button>
+        </form>
       </div>
     </div>
   );
 };
 
-function ChangeView({ center }) {
+// Change Map View Hook
+const ChangeView = ({ center }) => {
   const map = useMap();
   map.setView(center);
   return null;
-}
+};
+
+// Reusable Input Field Component
+const InputField = ({ type, name, placeholder, required }) => <input type={type} name={name} placeholder={placeholder} required={required} className="w-full p-3 border rounded focus:ring-primary focus:border-primary bg-white" />;
 
 export default Contact;
