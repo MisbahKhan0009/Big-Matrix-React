@@ -148,7 +148,16 @@ const Sidebar = () => {
           <ul className="relative z-10">
             {menuItems.map((item, index) => {
               const Icon = item.icon;
-              const isActive = item.path === "/shop" ? location.pathname === "/shop" || location.pathname === "/checkout" : item.path === "/projects" ? location.pathname === "/projects" || location.pathname.startsWith("/projects/") : item.path === "/research" ? location.pathname === "/research" || location.pathname.startsWith("/research/") : location.pathname === item.path;
+              const isActive = item.path === "/shop" 
+              ? location.pathname === "/shop" || location.pathname === "/checkout"
+              : item.path === "/projects"
+              ? location.pathname === "/projects" || location.pathname.startsWith("/projects/")
+              : item.path === "/research"
+              ? location.pathname === "/research" || location.pathname.startsWith("/research/")
+              : item.path === "/software"
+              ? location.pathname === "/software" || location.pathname.startsWith("/software/")
+              : location.pathname === item.path;
+              
               return (
                 <li key={item.path} className="h-12">
                   <Link to={item.path} className="flex items-center h-full gap-4 px-6 transition-colors duration-300">
