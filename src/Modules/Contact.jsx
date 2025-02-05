@@ -35,7 +35,7 @@ const Contact = () => {
 
   return (
     <div>
-      <Banner bannerText="Contact" bannerBg={"/public/contact.jpg"} bannerIcon={Send} />
+      <Banner bannerText="Contact" bannerBg={"/contact.jpg"} bannerIcon={Send} />
 
       <div className="container mx-auto flex flex-col items-center py-8">
         {/* Map Section */}

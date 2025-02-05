@@ -97,6 +97,7 @@ const HomePage = () => {
       {/* Features Section */}
       <section className="py-24 min-h-screen mx-auto w-4/5" ref={featuresRef}>
         <motion.div variants={cardRevealVariants} initial="hidden" animate={isInView ? "visible" : "hidden"} className="container px-4">
+          <h1 className="text-5xl font-light text-center mb-12">Mission & Vision</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {cardData.map(({ title, description, icon, bgColor, iconColor, hoverColor }, index) => (
               <motion.div
