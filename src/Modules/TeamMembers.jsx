@@ -1,52 +1,111 @@
 // src/components/TeamMembers.jsx
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Users } from "lucide-react";
-import Card from "../components/ui/card";
+import { useSearchParams } from "react-router-dom";
 import teamMembersData from "../data/teamMembers.json";
 import Banner from "../Shared/Banner";
+import Card from "../components/ui/Card";
 
 const TeamMembers = () => {
-  const [groupedMembers, setGroupedMembers] = useState({});
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [selectedPosition, setSelectedPosition] = useState("All");
+  const [filteredMembers, setFilteredMembers] = useState([]);
+  
+  const positions = ["All", "Team Leader", "Collaborator", "Researcher", "Former Researcher"];
+  
+  // Update the position handler to modify URL
+  const handlePositionClick = (position) => {
+    if (position === "All") {
+      setSearchParams({});
+    } else {
+      const formattedPosition = position.toLowerCase().replace(/\s+/g, "-");
+      setSearchParams({ position: formattedPosition });
+    }
+    setSelectedPosition(position);
+  };
 
   useEffect(() => {
-    const positionOrder = ["Team Leader", "Collaborator", "Researcher", "Former Researcher"];
-    
-    const sortedMembers = [...teamMembersData].sort((a, b) => {
-      return positionOrder.indexOf(a.position) - positionOrder.indexOf(b.position);
-    });
+    const positionParam = searchParams.get('position');
+    if (positionParam) {
+      const formattedPosition = positionParam.split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+      setSelectedPosition(formattedPosition);
+    } else {
+      setSelectedPosition("All");
+    }
+  }, [searchParams]);
 
-    const grouped = sortedMembers.reduce((acc, member) => {
-      acc[member.position] = acc[member.position] || [];
-      acc[member.position].push(member);
-      return acc;
-    }, {});
+  useEffect(() => {
+    const filtered = selectedPosition === "All"
+      ? teamMembersData
+      : teamMembersData.filter(member => member.position === selectedPosition);
 
-    setGroupedMembers(grouped);
-  }, []);
+    setFilteredMembers(filtered);
+  }, [selectedPosition]);
 
   return (
     <div>
-      <Banner bannerText={"Team Members"} bannerBg={"/team.png"} bannerIcon={Users} />
-      <div className="container w-11/12  mx-auto">
-        {Object.entries(groupedMembers).map(([position, members]) => (
-          <div key={position} className="mb-8">
-            <h2 className="text-5xl font-light text-center mt-4 capitalize">{position}</h2>
-            <div 
-              className={`grid gap-4 mt-6 ${
-                position === "Team Leader" 
-                  ? "grid-cols-1 max-w-sm mx-auto" 
-                  : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4"
-              }`}
-            >
-              {members.map((member) => (
+      <Banner bannerText={"Peoples"} bannerBg={"/team.png"} bannerIcon={Users} />
+      
+      <div className="container w-11/12 mx-auto py-8">
+        {/* Position Filter Tabs */}
+        <div className="flex overflow-x-auto">
+          <div className="flex justify-center space-x-1 border-b mx-auto w-full border-gray-200">
+            {positions.map((position) => (
+              <button
+                key={position}
+                onClick={() => handlePositionClick(position)}
+                className={`px-4 py-2 text-sm font-medium min-w-[100px] transition-all duration-200
+                  ${selectedPosition === position 
+                    ? "border-b-2 border-primary text-primary" 
+                    : "text-gray-500 hover:text-primary hover:border-b-2 hover:border-primary/30"
+                  }`}
+              >
+                {position}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Team Members Grid */}
+        <div className="mt-8">
+          {selectedPosition === "All" ? (
+            <div className="space-y-8">
+              {/* Team Leader Section */}
+              <div className="max-w-sm mx-auto">
+                {filteredMembers
+                  .filter(member => member.position === "Team Leader")
+                  .map(member => (
+                    <Card key={member.id} memberData={member} />
+                  ))}
+              </div>
+              
+              {/* Other Members Section */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+                {filteredMembers
+                  .filter(member => member.position !== "Team Leader")
+                  .map(member => (
+                    <Card key={member.id} memberData={member} />
+                  ))}
+              </div>
+            </div>
+          ) : (
+            <div className={`grid gap-4 ${
+              selectedPosition === "Team Leader" 
+                ? "grid-cols-1 max-w-sm mx-auto" 
+                : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4"
+            }`}>
+              {filteredMembers.map((member) => (
                 <Card key={member.id} memberData={member} />
               ))}
             </div>
-          </div>
-        ))}
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
 export default TeamMembers;
+

@@ -91,7 +91,7 @@ const HomePage = () => {
 
             {/* Tagline */}
             <motion.div variants={textRevealVariants} initial="hidden" animate="visible" className="relative overflow-hidden w-fit px-4">
-              <p className="text-lg lg:text-xl font-light px-4 py-2 bg-primary text-secondary">Transforming Complex Data into Actionable Insights</p>
+              <p className="text-lg lg:text-xl font-light px-4 py-2 bg-primary  rounded-[6px] text-secondary">Transforming Complex Data into Actionable Insights</p>
             </motion.div>
 
             {/* Description */}
@@ -102,10 +102,10 @@ const HomePage = () => {
 
             {/* Buttons */}
             <motion.div variants={textRevealVariants} initial="hidden" animate="visible" className="flex flex-col sm:flex-row py-4 gap-4 px-4">
-              <Button effect="gooeyLeft" size="lg" className="bg-primary text-lg lg:text-xl font-light text-secondary hover:bg-primary/90">
+              <Button effect="gooeyLeft" size="lg" className="bg-primary text-lg lg:text-xl font-light text-secondary rounded-[4px]  hover:bg-primary/90">
                 Explore Research
               </Button>
-              <Button variant="outline" effect="hoverUnderline" size="lg" className="border-primary text-lg lg:text-xl font-light text-primary hover:bg-primary/10">
+              <Button variant="outline" effect="hoverUnderline" size="lg" className="border-primary text-lg lg:text-xl font-light text-primary rounded-[4px] hover:bg-primary/10">
                 Learn More
               </Button>
             </motion.div>
