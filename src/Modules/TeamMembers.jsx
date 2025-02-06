@@ -4,7 +4,7 @@ import { Users } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import teamMembersData from "../data/teamMembers.json";
 import Banner from "../Shared/Banner";
-import Card from "../components/ui/Card";
+import Card from "../components/ui/card";
 
 
 const TeamMembers = () => {
