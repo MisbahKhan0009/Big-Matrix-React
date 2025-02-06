@@ -6,6 +6,7 @@ import teamMembersData from "../data/teamMembers.json";
 import Banner from "../Shared/Banner";
 import Card from "../components/ui/Card";
 
+
 const TeamMembers = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedPosition, setSelectedPosition] = useState("All");
