@@ -398,5 +398,25 @@
     "link12": "",
     "position": "Researcher",
     "fields": ["Field2"]
+  },
+  {
+    "id": "22",
+    "name": "Istiak Ahmed",
+    "designation": "Teaching Assistant (TA) & Research Assistant (RA) at North South University, Dhaka, Bangladesh",
+    "photo": "photos/Istiak_Ahmed.jpg",
+    "email": "istiak676@gmail.com",
+    "orcid": "",
+    "github": "",
+    "facebook": "",
+    "google_scholar": "a@a.com",
+    "twitter": "",
+    "linkedin": "",
+    "portfolio": "",
+    "link9": "",
+    "link10": "",
+    "link11": "",
+    "link12": "",
+    "position": "Advisor",
+    "fields": ["Field2"]
   }
 ]

@@ -5,22 +5,20 @@ import { BookText, Database, FlaskConical, FolderKanban, Home, Menu, Send, Users
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
+import teamMembersData from "../data/teamMembers.json";
+import { getUniquePositions } from "../utils/getUniquePositions";
+
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isPeopleOpen, setIsPeopleOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handlePositionClick = (position) => {
-    const formattedPosition = position.toLowerCase().replace(/\s+/g, "-");
-    navigate(`/team?position=${formattedPosition}`);
-    setIsOpen(false);
-    setIsPeopleOpen(false);
-  };
-  const positions = ["All Members", "Team Leader", "Collaborator", "Researcher", "Former Researcher"];
+  const positions = getUniquePositions(teamMembersData);
+
   const menuItems = [
     { title: "Home", path: "/", icon: Home },
-    { title: "Partners", path: "/partners", icon: Building2 }, // Add this line
+    { title: "Partners", path: "/partners", icon: Building2 },
     { title: "Research", path: "/research", icon: FlaskConical },
     { title: "Projects", path: "/projects", icon: FolderKanban },
     { title: "People", path: "/team", icon: Users2 },
@@ -31,16 +29,19 @@ const Sidebar = () => {
     { title: "Shop", path: "/shop", icon: ShoppingBag },
     { title: "Contact", path: "/contact", icon: Send },
   ];
-  // Add this function after the menuItems array
+
   const getPositionIndex = () => {
     if (location.pathname === "/team") {
       const params = new URLSearchParams(location.search);
       const position = params.get("position");
       if (position) {
-        return positions.findIndex((pos) => pos.toLowerCase().replace(/\s+/g, "-") === position);
+        const index = positions.findIndex(
+          (pos) => pos.toLowerCase().replace(/\s+/g, "-") === position
+        );
+        return index >= 0 ? index : 0;
       }
     }
-    return -1;
+    return 0;
   };
 
   const activeIndex = menuItems.findIndex((item) => {
@@ -59,6 +60,7 @@ const Sidebar = () => {
     return item.path === location.pathname;
   });
   const positionIndex = getPositionIndex();
+  
   return (
     <>
       {/* Mobile Navbar */}
@@ -96,9 +98,15 @@ const Sidebar = () => {
                         <ul className="bg-secondary/5">
                           {positions.map((position) => (
                             <li key={position}>
-                              <Link to={`/team?position=${position.replace(/\s+/g, "-").toLowerCase()}`} onClick={() => setIsOpen(false)} className="flex items-center pl-16 py-2 text-sm text-secondary hover:bg-secondary/10">
+                              <button
+                                onClick={() => {
+                                  navigate(`/team?position=${position.toLowerCase().replace(/\s+/g, "-")}`);
+                                  setIsOpen(false);
+                                }}
+                                className="flex items-center pl-16 py-2 text-sm text-secondary hover:bg-secondary/10 w-full text-left"
+                              >
                                 {position}
-                              </Link>
+                              </button>
                             </li>
                           ))}
                         </ul>
@@ -107,15 +115,6 @@ const Sidebar = () => {
                   );
                 }
 
-                {
-                  positions.map((position) => (
-                    <li key={position}>
-                      <button onClick={() => handlePositionClick(position)} className="flex items-center pl-16 py-2 text-sm text-secondary hover:bg-secondary/10 w-full text-left">
-                        {position}
-                      </button>
-                    </li>
-                  ));
-                }
                 return (
                   <li key={item.path}>
                     <Link
@@ -137,20 +136,21 @@ const Sidebar = () => {
 
       {/* Desktop Sidebar */}
       <div className="hidden lg:flex fixed left-0 top-0 h-full w-64 shadow-lg bg-primary text-secondary flex-col overflow-hidden">
-        <div className="p-2 border-b border-white">
+        <div className=" border-b border-white">
           <Link to="/">
-          <div className="aspect-square w-full max-w-[180px] mx-auto">
-            <img src="/logo-white.png" alt="Big Matrix" className="w-full h-full object-contain" />
+          <div className=" w-full max-w-[180px] mx-auto">
+            <img src="/logo-white.png" alt="Big Matrix" className="w-full h-full object-fit" />
           </div>
           </Link>
         </div>
 
         <nav className="flex-1 relative py-8">
-          {/* Active Background */}
+          {/* Updated Active Background positioning */}
           <div
             className="absolute left-1 w-full h-12 transition-transform duration-300 ease-in-out z-0"
             style={{
-              transform: location.pathname === "/team" ? `translateY(${3 * 48}px)` : `translateY(${activeIndex * 48}px)`,
+              transform: `translateY(${activeIndex * 48}px)`,
+              opacity: location.pathname === "/team" ? 0 : 1,
             }}
           >
             <div className="absolute inset-0 right-[-24px] bg-secondary rounded-l-xl">
@@ -214,3 +214,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+

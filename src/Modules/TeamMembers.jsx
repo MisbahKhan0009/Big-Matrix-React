@@ -5,14 +5,14 @@ import { useSearchParams } from "react-router-dom";
 import teamMembersData from "../data/teamMembers.json";
 import Banner from "../Shared/Banner";
 import Card from "../components/ui/card";
-
+import { getUniquePositions } from "../utils/getUniquePositions";
 
 const TeamMembers = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedPosition, setSelectedPosition] = useState("All");
   const [filteredMembers, setFilteredMembers] = useState([]);
   
-  const positions = ["All", "Team Leader", "Collaborator", "Researcher", "Former Researcher"];
+  const positions = getUniquePositions(teamMembersData);
   
   // Update the position handler to modify URL
   const handlePositionClick = (position) => {
@@ -57,7 +57,7 @@ const TeamMembers = () => {
               <button
                 key={position}
                 onClick={() => handlePositionClick(position)}
-                className={`px-4 py-2 text-sm font-medium min-w-[100px] transition-all duration-200
+                className={`px-4 py-2 text-sm font-medium min-w-[100px] whitespace-nowrap transition-all duration-200
                   ${selectedPosition === position 
                     ? "border-b-2 border-primary text-primary" 
                     : "text-gray-500 hover:text-primary hover:border-b-2 hover:border-primary/30"
