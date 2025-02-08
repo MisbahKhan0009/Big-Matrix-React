@@ -1,7 +1,7 @@
 // @ts-ignore
 import { useState } from "react";
 
-import { BookText, Database, FlaskConical, FolderKanban, Home, Menu, Send, Users2, X, ShoppingBag, GraduationCap, Code2, ChevronDown, ChevronRight, ChevronUp } from "lucide-react";
+import { BookText, Database, FlaskConical, FolderKanban, Home, Menu, Send, Users2, X, ShoppingBag, GraduationCap, Code2, ChevronDown, ChevronRight, ChevronUp, Building2 } from "lucide-react";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -20,6 +20,7 @@ const Sidebar = () => {
   const positions = ["All Members", "Team Leader", "Collaborator", "Researcher", "Former Researcher"];
   const menuItems = [
     { title: "Home", path: "/", icon: Home },
+    { title: "Partners", path: "/partners", icon: Building2 }, // Add this line
     { title: "Research", path: "/research", icon: FlaskConical },
     { title: "Projects", path: "/projects", icon: FolderKanban },
     { title: "People", path: "/team", icon: Users2 },
@@ -36,14 +37,12 @@ const Sidebar = () => {
       const params = new URLSearchParams(location.search);
       const position = params.get("position");
       if (position) {
-        return positions.findIndex(
-          pos => pos.toLowerCase().replace(/\s+/g, "-") === position
-        );
+        return positions.findIndex((pos) => pos.toLowerCase().replace(/\s+/g, "-") === position);
       }
     }
     return -1;
   };
-  
+
   const activeIndex = menuItems.findIndex((item) => {
     if (item.path === "/shop") {
       return location.pathname === "/shop" || location.pathname === "/checkout";
@@ -65,10 +64,12 @@ const Sidebar = () => {
       {/* Mobile Navbar */}
       <div className="lg:hidden fixed top-0 left-0 right-0 bg-primary text-secondary z-50">
         <div className="flex items-center justify-between p-4 max-w-full mx-auto">
-          <div className="flex items-center gap-2 z-50">
-            <img src="/logo-white.png" alt="Big Matrix" className="h-8 w-8" />
-            <span className="font-light text-sm whitespace-nowrap">BIG MATRIX RESEARCH</span>
-          </div>
+          <Link to="/">
+            <div className="flex items-center gap-2 z-50">
+              <img src="/logo-white.png" alt="Big Matrix" className="h-8 w-8" />
+              <span className="font-light text-sm whitespace-nowrap">BIG MATRIX RESEARCH</span>
+            </div>
+          </Link>
 
           <button onClick={() => setIsOpen(!isOpen)} className="p-2 z-50">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -105,7 +106,7 @@ const Sidebar = () => {
                     </li>
                   );
                 }
-                // Update the dropdown items in both mobile and desktop versions:
+
                 {
                   positions.map((position) => (
                     <li key={position}>
@@ -137,9 +138,11 @@ const Sidebar = () => {
       {/* Desktop Sidebar */}
       <div className="hidden lg:flex fixed left-0 top-0 h-full w-64 shadow-lg bg-primary text-secondary flex-col overflow-hidden">
         <div className="p-2 border-b border-white">
+          <Link to="/">
           <div className="aspect-square w-full max-w-[180px] mx-auto">
             <img src="/logo-white.png" alt="Big Matrix" className="w-full h-full object-contain" />
           </div>
+          </Link>
         </div>
 
         <nav className="flex-1 relative py-8">
@@ -147,9 +150,7 @@ const Sidebar = () => {
           <div
             className="absolute left-1 w-full h-12 transition-transform duration-300 ease-in-out z-0"
             style={{
-              transform: location.pathname === "/team" 
-                ? `translateY(${3 * 48}px)` 
-                : `translateY(${activeIndex * 48}px)`,
+              transform: location.pathname === "/team" ? `translateY(${3 * 48}px)` : `translateY(${activeIndex * 48}px)`,
             }}
           >
             <div className="absolute inset-0 right-[-24px] bg-secondary rounded-l-xl">
@@ -163,18 +164,18 @@ const Sidebar = () => {
             {menuItems.map((item, index) => {
               const Icon = item.icon;
               const isActive = item.path === "/shop" ? location.pathname === "/shop" || location.pathname === "/checkout" : item.path === "/projects" ? location.pathname === "/projects" || location.pathname.startsWith("/projects/") : item.path === "/research" ? location.pathname === "/research" || location.pathname.startsWith("/research/") : item.path === "/software" ? location.pathname === "/software" || location.pathname.startsWith("/software/") : location.pathname === item.path;
-      
+
               if (item.path === "/team") {
                 return (
-                  <li key={item.path} className="relative">
-                    <button onClick={() => setIsPeopleOpen(!isPeopleOpen)} className="flex items-center justify-between w-full h-12 px-6 transition-colors duration-300">
+                  <li key={item.path} className="relative" onMouseEnter={() => setIsPeopleOpen(true)} onMouseLeave={() => setIsPeopleOpen(false)}>
+                    <div className="flex items-center justify-between w-full h-12 px-6 transition-colors duration-300">
                       <div className="flex items-center gap-4">
                         <Icon className={`w-5 h-5 ${isActive ? "text-primary" : "text-secondary"}`} />
                         <span className={`text-sm ${isActive ? "text-primary font-medium" : "text-secondary"}`}>{item.title}</span>
                       </div>
                       {isPeopleOpen ? <ChevronUp className={`w-4 h-4 ${isActive ? "text-primary" : "text-secondary"}`} /> : <ChevronDown className={`w-4 h-4 ${isActive ? "text-primary" : "text-secondary"}`} />}
-                    </button>
-                    {isPeopleOpen && (
+                    </div>
+                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isPeopleOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"}`}>
                       <ul className="bg-secondary/5 py-1">
                         {positions.map((position) => (
                           <li key={position}>
@@ -184,11 +185,10 @@ const Sidebar = () => {
                           </li>
                         ))}
                       </ul>
-                    )}
+                    </div>
                   </li>
                 );
               }
-      
               return (
                 <li key={item.path} className="h-12">
                   <Link to={item.path} className="flex items-center h-full gap-4 px-6 transition-colors duration-300">
@@ -214,4 +214,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-

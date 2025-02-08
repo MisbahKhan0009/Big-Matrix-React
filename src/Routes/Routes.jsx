@@ -16,6 +16,7 @@ import ResearchAreaDetails from "../Modules/ResearchAreaDetails.jsx";
 import Data from "../Modules/Data.jsx";
 import Software from "../Modules/Software.jsx";
 import SoftwareDetails from "../Modules/SoftwareDetails.jsx";
+import Partners from "../Modules/Partners.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -73,6 +74,7 @@ export const router = createBrowserRouter([
         path: "/software/:softwareId",
         element: <SoftwareDetails />,
       },
+      { path: "/partners", element: <Partners /> },
       {
         path: "*",
         element: <NotFound />,

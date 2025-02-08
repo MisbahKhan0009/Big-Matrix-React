@@ -60,8 +60,13 @@ export default {
         shine: "shine 3s ease-out infinite",
         "slide-right": "slideRight 0.3s ease-out forwards",
         "slide-down": "slideDown 0.3s ease-out forwards",
+        "rotate-border": "rotateBorder 3s linear infinite",
       },
       keyframes: {
+        rotateBorder: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
         buttonBefore: {
           "0%": { top: "100%", transform: "translateX(-50%) scaleY(1) scaleX(1.25)" },
           "100%": { top: "-35%", transform: "translateX(-50%) scaleY(1.3) scaleX(0.8)", backgroundColor: "#009087" },
