@@ -140,9 +140,9 @@ const Sidebar = () => {
         <div className="border-b border-white">
           <Link to="/">
             <div className="w-full max-w-[240px] mx-auto">
-              {" "}
-              {/* Increased max-width */}
-              <img src="/logo-white.png" alt="Big Matrix" className="w-full h-auto object-contain" /> {/* Ensured aspect ratio */}
+              
+              
+              <img src="/logo-white.png" alt="Big Matrix" className="w-full h-36 object-contain" /> {/* Ensured aspect ratio */}
             </div>
           </Link>
         </div>
