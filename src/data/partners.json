@@ -3,74 +3,90 @@
     {
       "id": 1,
       "name": "MedTech Innovations",
-      "logo": "/partnerlogo.png",
+      "logo": "/partners/partner1.svg",
+      "category": "Digital Transformation",
       "review": "Working with Big Matrix Research has revolutionized our medical imaging solutions. Their expertise in AI-driven diagnostics has significantly improved accuracy and efficiency.",
       "projectTitle": "AI-Powered Medical Imaging",
       "projectDescription": "Developed an AI-based platform for early detection of diseases through medical imaging.",
-      "projectImage": "/ProjectManagement.jpg"
+      "projectImage": "/projects/digital-transform.jpg",
+      "technologies": ["Cloud", "AI/ML", "DevOps"]
     },
     {
       "id": 2,
       "name": "HealthFlow Systems",
-      "logo": "/partnerlogo.png",
+      "logo": "/partners/partner2.svg",
+      "category": "Data Management",
       "review": "Big Matrix's research team helped us streamline patient data management, reducing processing time by 40%.",
       "projectTitle": "Patient Data Management System",
       "projectDescription": "Created a secure, scalable platform for managing and analyzing patient data across hospitals.",
-      "projectImage": "/ProjectManagement.jpg"
+      "projectImage": "/projects/data-management.jpg",
+      "technologies": ["Cloud", "Big Data", "Cybersecurity"]
     },
     {
       "id": 3,
       "name": "BioGen Labs",
-      "logo": "/partnerlogo.png",
+      "logo": "/partners/partner3.svg",
+      "category": "Genomics",
       "review": "Their innovative approach to genomic data analysis has been a game-changer for our research.",
       "projectTitle": "Genomic Data Analysis Platform",
       "projectDescription": "Built a platform for analyzing and interpreting genomic data to accelerate personalized medicine.",
-      "projectImage": "/ProjectManagement.jpg"
+      "projectImage": "/projects/genomics.jpg",
+      "technologies": ["AI/ML", "Bioinformatics", "Cloud"]
     },
     {
       "id": 4,
       "name": "PharmaCare Solutions",
-      "logo": "/partnerlogo.png",
+      "logo": "/partners/partner4.svg",
+      "category": "Drug Discovery",
       "review": "Big Matrix's insights into drug discovery algorithms have significantly reduced our R&D timelines.",
       "projectTitle": "AI-Driven Drug Discovery",
       "projectDescription": "Developed an AI-powered system to identify potential drug candidates faster and more accurately.",
-      "projectImage": "/ProjectManagement.jpg"
+      "projectImage": "/projects/drug-discovery.jpg",
+      "technologies": ["AI/ML", "Data Science", "Cloud"]
     },
     {
       "id": 5,
       "name": "Surgical Robotics Inc.",
-      "logo": "/partnerlogo.png",
+      "logo": "/partners/partner5.svg",
+      "category": "Robotics",
       "review": "Their expertise in robotics and AI has transformed our surgical systems, making them more precise and efficient.",
       "projectTitle": "AI-Enhanced Surgical Robotics",
       "projectDescription": "Integrated AI into surgical robots to improve precision and reduce recovery times.",
-      "projectImage": "/ProjectManagement.jpg"
+      "projectImage": "/projects/surgical-robotics.jpg",
+      "technologies": ["AI/ML", "Robotics", "IoT"]
     },
     {
       "id": 6,
       "name": "TeleHealth Networks",
-      "logo": "/partnerlogo.png",
+      "logo": "/partners/partner6.svg",
+      "category": "Telemedicine",
       "review": "Big Matrix's research enabled us to build a robust telehealth platform, improving access to healthcare for millions.",
       "projectTitle": "TeleHealth Platform Development",
       "projectDescription": "Created a scalable telehealth platform for remote patient consultations and monitoring.",
-      "projectImage": "/ProjectManagement.jpg"
+      "projectImage": "/projects/telehealth.jpg",
+      "technologies": ["Cloud", "Mobile Development", "Cybersecurity"]
     },
     {
       "id": 7,
       "name": "NeuralMed Technologies",
-      "logo": "/partnerlogo.png",
+      "logo": "/partners/partner7.svg",
+      "category": "Medical Diagnostics",
       "review": "Their work on neural networks for medical diagnostics has been groundbreaking, helping us detect diseases earlier than ever.",
       "projectTitle": "Neural Network Diagnostics",
       "projectDescription": "Developed a neural network-based system for early detection of neurological disorders.",
-      "projectImage": "/ProjectManagement.jpg"
+      "projectImage": "/projects/neural-diagnostics.jpg",
+      "technologies": ["AI/ML", "Deep Learning", "Cloud"]
     },
     {
       "id": 8,
       "name": "VaccineTech Solutions",
-      "logo": "/partnerlogo.png",
+      "logo": "/partners/partner8.svg",
+      "category": "Vaccine Development",
       "review": "Big Matrix's research accelerated our vaccine development process, enabling us to respond faster to global health crises.",
       "projectTitle": "Vaccine Development Optimization",
       "projectDescription": "Optimized vaccine development pipelines using AI and machine learning.",
-      "projectImage": "/ProjectManagement.jpg"
+      "projectImage": "/projects/vaccine-development.jpg",
+      "technologies": ["AI/ML", "Data Science", "Cloud"]
     }
   ]
 }

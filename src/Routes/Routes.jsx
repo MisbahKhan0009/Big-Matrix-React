@@ -18,6 +18,7 @@ import Software from "../Modules/Software.jsx";
 import SoftwareDetails from "../Modules/SoftwareDetails.jsx";
 import Partners from "../Modules/Partners.jsx";
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
