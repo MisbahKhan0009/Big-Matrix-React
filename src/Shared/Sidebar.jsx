@@ -35,9 +35,7 @@ const Sidebar = () => {
       const params = new URLSearchParams(location.search);
       const position = params.get("position");
       if (position) {
-        const index = positions.findIndex(
-          (pos) => pos.toLowerCase().replace(/\s+/g, "-") === position
-        );
+        const index = positions.findIndex((pos) => pos.toLowerCase().replace(/\s+/g, "-") === position);
         return index >= 0 ? index : 0;
       }
     }
@@ -63,7 +61,7 @@ const Sidebar = () => {
     return item.path === location.pathname;
   });
   const positionIndex = getPositionIndex();
-  
+
   return (
     <>
       {/* Mobile Navbar */}
@@ -139,11 +137,13 @@ const Sidebar = () => {
 
       {/* Desktop Sidebar */}
       <div className="hidden lg:flex fixed left-0 top-0 h-full w-64 shadow-lg bg-primary text-secondary flex-col overflow-hidden">
-        <div className=" border-b border-white">
+        <div className="border-b border-white">
           <Link to="/">
-          <div className=" w-full max-w-[180px] mx-auto">
-            <img src="/logo-white.png" alt="Big Matrix" className="w-full h-full object-fit" />
-          </div>
+            <div className="w-full max-w-[240px] mx-auto">
+              {" "}
+              {/* Increased max-width */}
+              <img src="/logo-white.png" alt="Big Matrix" className="w-full h-auto object-contain" /> {/* Ensured aspect ratio */}
+            </div>
           </Link>
         </div>
 
@@ -181,10 +181,7 @@ const Sidebar = () => {
                       <ul className="py-2">
                         {positions.map((position) => (
                           <li key={position}>
-                            <Link 
-                              to={`/team${position === "All" ? "" : `?position=${position.toLowerCase().replace(/\s+/g, "-")}`}`}
-                              className="flex items-center px-6 py-2 text-sm text-secondary hover:bg-secondary/10"
-                            >
+                            <Link to={`/team${position === "All" ? "" : `?position=${position.toLowerCase().replace(/\s+/g, "-")}`}`} className="flex items-center px-6 py-2 text-sm text-secondary hover:bg-secondary/10">
                               {position}
                             </Link>
                           </li>
@@ -199,9 +196,7 @@ const Sidebar = () => {
                 <li key={item.path} className="h-12">
                   <Link to={item.path} className="flex items-center h-full gap-4 px-6 transition-colors duration-300">
                     <Icon className={`w-5 h-5 ${isActive ? "text-primary" : "text-secondary"}`} />
-                    <span className={`text-sm ${isActive ? "text-primary font-medium" : "text-secondary"}`}>
-                      {item.title}
-                    </span>
+                    <span className={`text-sm ${isActive ? "text-primary font-medium" : "text-secondary"}`}>{item.title}</span>
                   </Link>
                 </li>
               );
@@ -214,4 +209,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
