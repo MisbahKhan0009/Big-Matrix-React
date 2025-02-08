@@ -175,7 +175,7 @@ const Sidebar = () => {
                       </div>
                       {isPeopleOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                     </Link>
-                    <div className={`absolute right-6 w-3/4 mx-auto bg-white/10 backdrop-blur-xl border border-white/20 mt-1 rounded-xl shadow-lg transition-all duration-300 ease-in-out ${isPeopleOpen ? "opacity-100 visible" : "opacity-0 invisible"}`} style={{ top: "100%" }}>
+                    <div className={`absolute right-6 w-3/4 mx-auto bg-white/10 backdrop-blur-md border border-white/40 mt-1 rounded-xl shadow-lg transition-all duration-300 ease-in-out ${isPeopleOpen ? "opacity-100 visible" : "opacity-0 invisible"}`} style={{ top: "100%" }}>
                       <ul className="py-2">
                         {positions.map((position) => (
                           <li key={position}>
