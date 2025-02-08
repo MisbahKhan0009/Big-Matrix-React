@@ -57,6 +57,9 @@ const Sidebar = () => {
     if (item.path === "/software") {
       return location.pathname === "/software" || location.pathname.startsWith("/software/");
     }
+    if (item.path === "/team") {
+      return location.pathname === "/team";
+    }
     return item.path === location.pathname;
   });
   const positionIndex = getPositionIndex();
@@ -145,12 +148,11 @@ const Sidebar = () => {
         </div>
 
         <nav className="flex-1 relative py-8">
-          {/* Updated Active Background positioning */}
+          {/* Active Background */}
           <div
             className="absolute left-1 w-full h-12 transition-transform duration-300 ease-in-out z-0"
             style={{
               transform: `translateY(${activeIndex * 48}px)`,
-              opacity: location.pathname === "/team" ? 0 : 1,
             }}
           >
             <div className="absolute inset-0 right-[-24px] bg-secondary rounded-l-xl">
@@ -163,23 +165,26 @@ const Sidebar = () => {
           <ul className="relative z-10">
             {menuItems.map((item, index) => {
               const Icon = item.icon;
-              const isActive = item.path === "/shop" ? location.pathname === "/shop" || location.pathname === "/checkout" : item.path === "/projects" ? location.pathname === "/projects" || location.pathname.startsWith("/projects/") : item.path === "/research" ? location.pathname === "/research" || location.pathname.startsWith("/research/") : item.path === "/software" ? location.pathname === "/software" || location.pathname.startsWith("/software/") : location.pathname === item.path;
+              const isActive = item.path === location.pathname;
 
               if (item.path === "/team") {
                 return (
                   <li key={item.path} className="relative" onMouseEnter={() => setIsPeopleOpen(true)} onMouseLeave={() => setIsPeopleOpen(false)}>
-                    <div className="flex items-center justify-between w-full h-12 px-6 transition-colors duration-300">
+                    <Link to="/team" className="flex items-center justify-between w-full h-12 px-6 transition-colors duration-300">
                       <div className="flex items-center gap-4">
                         <Icon className={`w-5 h-5 ${isActive ? "text-primary" : "text-secondary"}`} />
                         <span className={`text-sm ${isActive ? "text-primary font-medium" : "text-secondary"}`}>{item.title}</span>
                       </div>
-                      {isPeopleOpen ? <ChevronUp className={`w-4 h-4 ${isActive ? "text-primary" : "text-secondary"}`} /> : <ChevronDown className={`w-4 h-4 ${isActive ? "text-primary" : "text-secondary"}`} />}
-                    </div>
-                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isPeopleOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"}`}>
-                      <ul className="bg-secondary/5 py-1">
+                      {isPeopleOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    </Link>
+                    <div className={`absolute left-0 w-64 bg-primary shadow-lg transition-all duration-300 ease-in-out ${isPeopleOpen ? "opacity-100 visible" : "opacity-0 invisible"}`} style={{ top: "100%" }}>
+                      <ul className="py-2">
                         {positions.map((position) => (
                           <li key={position}>
-                            <Link to={position === "All Members" ? "/team" : `/team?position=${position.replace(/\s+/g, "-").toLowerCase()}`} className="flex items-center pl-16 py-2 text-sm text-secondary hover:bg-secondary/10">
+                            <Link 
+                              to={`/team${position === "All" ? "" : `?position=${position.toLowerCase().replace(/\s+/g, "-")}`}`}
+                              className="flex items-center px-6 py-2 text-sm text-secondary hover:bg-secondary/10"
+                            >
                               {position}
                             </Link>
                           </li>
@@ -189,17 +194,12 @@ const Sidebar = () => {
                   </li>
                 );
               }
+
               return (
                 <li key={item.path} className="h-12">
                   <Link to={item.path} className="flex items-center h-full gap-4 px-6 transition-colors duration-300">
-                    <Icon
-                      className={`w-5 h-5 transition-colors duration-300 shrink-0
-                      ${isActive ? "text-primary" : "text-secondary"}`}
-                    />
-                    <span
-                      className={`text-sm transition-colors duration-300 truncate
-                      ${isActive ? "text-primary font-medium" : "text-secondary"}`}
-                    >
+                    <Icon className={`w-5 h-5 ${isActive ? "text-primary" : "text-secondary"}`} />
+                    <span className={`text-sm ${isActive ? "text-primary font-medium" : "text-secondary"}`}>
                       {item.title}
                     </span>
                   </Link>
