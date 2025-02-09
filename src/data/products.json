@@ -1,42 +1,54 @@
 [
   {
     "id": 1,
-    "name": "Product 1",
+    "name": "Introduction to Machine Learning Algorithms",
     "price": 99.99,
-    "description": "Description for product 1",
-    "image": "/demo-book.jpg",
-    "category": "Category 1"
+    "author": "Dr. Sarah Johnson",
+    "edition": "2nd Edition",
+    "description": "A comprehensive guide to modern machine learning algorithms and their applications.",
+    "image": "/products/Tshirt.png",
+    "category": "Tshirt",
+    "publisher": "Academic Press",
+    "publishedDate": "2023",
+    "subjects": ["Computer Science", "Artificial Intelligence", "Data Science"],
+    "isbn": "9780123456789",
+    "pages": 450
   },
   {
     "id": 2,
-    "name": "Product 2",
+    "name": "Advanced Neural Networks Course",
     "price": 149.99,
-    "description": "Description for product 2",
-    "image": "/demo-book.jpg",
-    "category": "Category 2"
+    "description": "Complete video course covering advanced neural network architectures",
+    "image": "/products/Glass 1.png",
+    "category": "Mug",
+    "duration": "20 hours",
+    "level": "Advanced"
   },
   {
     "id": 3,
-    "name": "Product 2",
+    "name": "Advanced Neural Networks Course",
     "price": 149.99,
-    "description": "Description for product 2",
-    "image": "/demo-book.jpg",
-    "category": "Category 2"
+    "description": "Complete video course covering advanced neural network architectures",
+    "image": "/products/Glass 2.png",
+    "category": "Mug",
+    "duration": "20 hours",
+    "level": "Advanced"
   },
   {
-    "id": 4,
-    "name": "Product 2",
-    "price": 459.99,
-    "description": "Description for product 2",
-    "image": "/demo-book.jpg",
-    "category": "Category 2"
-  },
-  {
-    "id": 5,
-    "name": "Product 2",
-    "price": 1409.99,
-    "description": "Description for product 2",
-    "image": "/demo-book.jpg",
-    "category": "Category 2"
+    "id": 6,
+    "name": "Computational Methods for Approximation of Large-Scale Dynamical Systems",
+    "price": 500.0,
+    "author": "Mohammad Monir Uddin",
+    "edition": "1st Edition",
+    "description": "A comprehensive guide to computational methods for approximating large-scale dynamical systems.",
+    "image": "https://images.routledge.com/common/jackets/crclarge/978135102/9781351028622.jpg",
+    "category": "Book",
+    "publisher": "Chapman and Hall/CRC",
+    "publishedDate": "30 April 2019",
+    "subjects": ["Computer Science", "Engineering & Technology", "Mathematics & Statistics"],
+    "isbn": "9781351028622",
+    "doi": "https://doi.org/10.1201/9781351028622",
+    "pages": 336,
+    "location": "New York"
   }
 ]

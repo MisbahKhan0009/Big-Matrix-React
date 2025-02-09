@@ -1,12 +1,20 @@
 /* eslint-disable */
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
   const [isCartOpen, setIsCartOpen] = useState(false);
-
+  
+  // Save cart items to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }, [cartItems]);
+  
   const addToCart = (product) => {
     setCartItems((prev) => {
       const existingItem = prev.find((item) => item.id === product.id);
@@ -20,28 +28,26 @@ export const CartProvider = ({ children }) => {
       return [...prev, { ...product, quantity: 1 }];
     });
   };
-
+  
   const removeFromCart = (productId) => {
     setCartItems((prev) => prev.filter((item) => item.id !== productId));
   };
-
-  const updateQuantity = (productId, newQuantity) => {
-    if (newQuantity < 1) {
-      removeFromCart(productId);
-      return;
-    }
+  
+  const decreaseQuantity = (productId) => {
     setCartItems((prev) =>
       prev.map((item) =>
-        item.id === productId ? { ...item, quantity: newQuantity } : item
-      )
+        item.id === productId
+          ? { ...item, quantity: Math.max(0, item.quantity - 1) }
+          : item
+      ).filter(item => item.quantity > 0)
     );
   };
-
+  
   const totalAmount = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
-
+  
   return (
     <CartContext.Provider
       value={{
@@ -50,7 +56,7 @@ export const CartProvider = ({ children }) => {
         setIsCartOpen,
         addToCart,
         removeFromCart,
-        updateQuantity,
+        decreaseQuantity,
         totalAmount,
       }}
     >
