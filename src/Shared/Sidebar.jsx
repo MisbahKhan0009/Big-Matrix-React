@@ -136,7 +136,7 @@ const Sidebar = () => {
       </div>
 
       {/* Desktop Sidebar */}
-      <div className="hidden lg:flex fixed left-0 top-0 h-full w-64 shadow-lg bg-primary text-secondary flex-col overflow-hidden">
+      <div className="hidden lg:flex fixed z-50 left-0 top-0 h-full w-64 shadow-lg bg-primary text-secondary flex-col overflow-hidden">
         <div className="border-b border-white">
           <Link to="/">
             <div className="w-full max-w-[240px] mx-auto">
