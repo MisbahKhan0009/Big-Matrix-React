@@ -41,9 +41,9 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-primary text-secondary mt-20">
-      <div className="absolute inset-0 bg-primary -skew-y-2 -translate-y-10 origin-top-right -z-10"></div>
-      <div className="relative max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="absolute inset-0 bg-primary -skew-y-3 -translate-y-16 origin-top-right -z-10"></div>
+      <div className="relative max-w-7xl mx-auto pt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 px-4 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-white">Big-Matrix</h3>
@@ -81,23 +81,12 @@ const Footer = () => {
               ))}
             </div>
           </div>
-
-          {/* Newsletter */}
-          {/* <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Stay Updated</h4>
-            <form className="space-y-3">
-              <div className="relative">
-                <input type="email" placeholder="Enter your email" className="w-full px-4 py-2 rounded-lg bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <Mail className="absolute right-3 top-2.5 text-gray-400" size={20} />
-              </div>
-              <Button variant="secondary">Subscribe</Button>
-            </form>
-          </div> */}
         </div>
 
         {/* Copyright section */}
-        <div className="mt-8 pt-8 border-t border-white/20">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-8 px-4 py-8 bg-[#235144] relative">
+          
+          <div className="relative flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm">© {currentYear} Big-Matrix Research. All rights reserved.</p>
             <div className="flex gap-6">
               {legalLinks.map(({ text, href }) => (
