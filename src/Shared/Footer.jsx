@@ -9,13 +9,13 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/uddinmonir", label: "Github" },
-    { icon: Facebook, href: "https://www.facebook.com/mohammadmonir.uddin.75", label: "Facebook" },
+    { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61566031568599", label: "Facebook" },
     { icon: SlSocialGoogle, href: "https://scholar.google.com/citations?user=ZcKnA_AAAAAJ&hl=en", label: "Google Scholar" },
   ];
 
   const contactInfo = [
     { icon: Mail, text: "monirresearchlab@gmail.com", label: "Email" },
-    { icon: Phone, text: "+1 (555) 123-4567", label: "Phone" },
+    { icon: Phone, text: "+8801767076722", label: "Phone" },
     { icon: MapPin, text: "Bashundhara, Dhaka-1229, Bangladesh", label: "Address" },
   ];
 
@@ -43,11 +43,10 @@ const Footer = () => {
     <footer className="relative bg-primary text-secondary mt-20">
       <div className="absolute inset-0 overflow-x-hidden mt-6 bg-primary skew-y-2 -translate-y-16 origin-top-right -z-10"></div>
       <div className="relative max-w-7x pt-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 px-4 lg:grid-cols-3 gap-8">
+        <div className="grid place-content-start grid-cols-1 md:grid-cols-2 px-4 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-white">Big-Matrix</h3>
-            <p className="text-sm">Transforming Complex Data into Actionable Insights</p>
+            <img src="/logo-white.svg" alt="Big Matrix" className="h-16 w-full" />
             <div className="space-y-2">
               {contactInfo.map(({ icon: Icon, text, label }) => (
                 <div key={label} className="flex items-center gap-2">
@@ -85,7 +84,6 @@ const Footer = () => {
 
         {/* Copyright section */}
         <div className="mt-8 px-4 py-8 bg-[#235144] relative">
-          
           <div className="relative flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm">© {currentYear} Big-Matrix Research. All rights reserved.</p>
             <div className="flex gap-6">
@@ -103,8 +101,6 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
 
 //Ratim Software
 //MOR sumon
