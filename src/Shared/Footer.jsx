@@ -40,7 +40,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-primary text-secondary before:absolute before:inset-0 before:bg-primary before:skew-y-2 before:-translate-y-10 before:origin-top-right">
+    <footer className="relative bg-primary text-secondary mt-20">
+      <div className="absolute inset-0 bg-primary -skew-y-2 -translate-y-10 origin-top-right -z-10"></div>
       <div className="relative max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
