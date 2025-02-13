@@ -19,7 +19,6 @@ const Footer = () => {
     { icon: MapPin, text: "Bashundhara, Dhaka-1229, Bangladesh", label: "Address" },
   ];
 
-  // Using the same menu items as Sidebar
   const sitemapLinks = [
     { title: "Home", path: "/" },
     { title: "Publications & Talks", path: "/publications" },
@@ -41,25 +40,25 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-primary text-secondary mt-20">
-      <div className="absolute inset-0 overflow-x-hidden mt-6 bg-primary skew-y-2 -translate-y-16 origin-top-right -z-10"></div>
-      <div className="relative max-w-7x pt-6">
-        <div className="grid place-content-start grid-cols-1 md:grid-cols-2 px-4 lg:grid-cols-3 gap-8">
+      <div className="absolute inset-0 overflow-x-hidden mt-6 bg-primary skew-y-2 -translate-y-16 origin-top-right -z-10" />
+      <div className="container mx-auto max-w-7xl px-4 pt-16 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Company Info */}
-          <div className="space-y-4">
-            <img src="/logo-white.svg" alt="Big Matrix" className="h-16 w-full" />
-            <div className="space-y-2">
+          <div className="space-y-6">
+            <img src="/logo-white.svg" alt="Big Matrix" className="h-16" />
+            <div className="space-y-4">
               {contactInfo.map(({ icon: Icon, text, label }) => (
-                <div key={label} className="flex items-center gap-2">
-                  <Icon size={18} />
+                <div key={label} className="flex items-center gap-3 text-secondary/90 hover:text-secondary transition-colors">
+                  <Icon size={18} className="flex-shrink-0" />
                   <span className="text-sm">{text}</span>
                 </div>
               ))}
             </div>
-            <div className="flex space-x-4 pt-2">
+            <div className="flex gap-6">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <Tooltip key={label}>
-                  <TooltipTrigger>
-                    <a href={href} aria-label={label} className="hover:text-white transition-colors">
+                  <TooltipTrigger asChild>
+                    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="text-secondary/90 hover:text-secondary transition-colors">
                       <Icon size={24} strokeWidth={1.5} />
                     </a>
                   </TooltipTrigger>
@@ -71,11 +70,14 @@ const Footer = () => {
 
           {/* Sitemap */}
           <div className="col-span-2">
-            <h4 className="text-lg font-semibold text-white underline underline-offset-4 mb-4">Sitemap</h4>
-            <div className="grid grid-cols-2 gap-4">
+            <h4 className="text-lg font-semibold text-white mb-6 relative inline-block pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-white">Sitemap</h4>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-8">
               {sitemapLinks.map(({ title, path }) => (
-                <Link key={path} to={path} className="relative w-fit inline-block text-white transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px] before:bg-white before:transition-all before:duration-300 hover:before:w-full">
-                  {title}
+                <Link key={path} to={path} className="text-secondary/90 hover:text-secondary transition-colors relative w-fit group">
+                  <span className="relative">
+                    {title}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full" />
+                  </span>
                 </Link>
               ))}
             </div>
@@ -83,12 +85,12 @@ const Footer = () => {
         </div>
 
         {/* Copyright section */}
-        <div className="mt-8 px-4 py-8 bg-[#235144] relative">
-          <div className="relative flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm">© {currentYear} Big-Matrix Research. All rights reserved.</p>
-            <div className="flex gap-6">
+        <div className="mt-16 pt-8 border-t border-secondary/20">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-secondary/90">© {currentYear} Big-Matrix Research. All rights reserved.</p>
+            <div className="flex gap-8">
               {legalLinks.map(({ text, href }) => (
-                <a key={text} href={href} className="text-sm hover:text-white transition-colors">
+                <a key={text} href={href} className="text-sm text-secondary/90 hover:text-secondary transition-colors">
                   {text}
                 </a>
               ))}
@@ -101,8 +103,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-//Ratim Software
-//MOR sumon
-//Tanzim AI in healthcar
-//ML DL monir sir
