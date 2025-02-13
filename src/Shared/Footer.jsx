@@ -40,8 +40,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary text-secondary">
-      <div className="max-w-7xl mx-auto px-4 py-12">
+    <footer className="relative bg-primary text-secondary before:absolute before:inset-0 before:bg-primary before:skew-y-2 before:-translate-y-10 before:origin-top-right">
+      <div className="relative max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
@@ -74,15 +74,9 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-white underline underline-offset-4 mb-4">Sitemap</h4>
             <div className="grid grid-cols-2 gap-4">
               {sitemapLinks.map(({ title, path }) => (
-               <Link
-               key={path}
-               to={path}
-               className="relative w-fit inline-block text-white transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px] before:bg-white before:transition-all before:duration-300 hover:before:w-full"
-             >
-               {title}
-             </Link>
-             
-              
+                <Link key={path} to={path} className="relative w-fit inline-block text-white transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px] before:bg-white before:transition-all before:duration-300 hover:before:w-full">
+                  {title}
+                </Link>
               ))}
             </div>
           </div>
@@ -100,8 +94,8 @@ const Footer = () => {
           </div> */}
         </div>
 
-        {/* Copyright and Legal Links */}
-        <div className="mt-12 pt-8 border-t border-white-700">
+        {/* Copyright section */}
+        <div className="mt-8 pt-8 border-t border-white/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm">© {currentYear} Big-Matrix Research. All rights reserved.</p>
             <div className="flex gap-6">
