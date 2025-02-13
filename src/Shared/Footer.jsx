@@ -42,7 +42,7 @@ const Footer = () => {
   return (
     <footer className="relative bg-primary text-secondary mt-20">
       <div className="absolute inset-0 bg-primary -skew-y-3 -translate-y-16 origin-top-right -z-10"></div>
-      <div className="relative max-w-7xl mx-auto pt-6">
+      <div className="relative max-w-7x pt-6">
         <div className="grid grid-cols-1 md:grid-cols-2 px-4 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
