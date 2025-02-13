@@ -69,7 +69,7 @@ const Sidebar = () => {
         <div className="flex items-center justify-between p-4 max-w-full mx-auto">
           <Link to="/">
             <div className="flex items-center gap-2 z-50">
-              <img src="/logo-white.png" alt="Big Matrix" className="h-8 w-8" />
+              <img src="/logo-white.svg" alt="Big Matrix" className="h-8 w-8" />
               <span className="font-light text-sm whitespace-nowrap">BIG MATRIX RESEARCH</span>
             </div>
           </Link>
@@ -137,10 +137,10 @@ const Sidebar = () => {
 
       {/* Desktop Sidebar */}
       <div className="hidden lg:flex fixed z-50 left-0 top-0 h-full w-64 shadow-lg bg-primary text-secondary flex-col overflow-hidden">
-        <div className="border-b border-white">
+        <div className="border-b bg border-white">
           <Link to="/">
             <div className="w-full max-w-[240px] mx-auto">
-              <img src="/logo-white.png" alt="Big Matrix" className="w-full h-36 object-contain" /> {/* Ensured aspect ratio */}
+              <img src="/logo-white.svg" alt="Big Matrix" className="w-full h-36 object-contain" /> {/* Ensured aspect ratio */}
             </div>
           </Link>
         </div>

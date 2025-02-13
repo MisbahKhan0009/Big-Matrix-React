@@ -77,7 +77,7 @@ const ProductCard = ({ product }) => {
                     </TooltipProvider>
                   </>
                 ) : (
-                  <button onClick={() => addToCart(product)} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary text-white hover:bg-primary/90">
+                  <button onClick={() => addToCart(product)} className="flex items-center gap-2 px-3 py-1.5 rounded-[4px] bg-primary text-white hover:bg-primary/90">
                     <ShoppingCart size={16} />
                     Add to Cart
                   </button>
