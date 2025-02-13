@@ -41,7 +41,7 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-primary text-secondary mt-20">
-      <div className="absolute -inset-1 overflow-x-hidden bg-primary skew-y-2 -translate-y-16 origin-top-right -z-10"></div>
+      <div className="absolute inset-0 overflow-x-hidden mt-6 bg-primary skew-y-2 -translate-y-16 origin-top-right -z-10"></div>
       <div className="relative max-w-7x pt-6">
         <div className="grid grid-cols-1 md:grid-cols-2 px-4 lg:grid-cols-3 gap-8">
           {/* Company Info */}
@@ -103,3 +103,10 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+
+//Ratim Software
+//MOR sumon
+//Tanzim AI in healthcar
+//ML DL monir sir
