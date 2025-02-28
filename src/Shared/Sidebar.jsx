@@ -1,10 +1,7 @@
 // @ts-ignore
 import { useState } from "react";
-
 import { BookText, Database, FlaskConical, FolderKanban, Home, Menu, Send, Users2, X, ShoppingBag, GraduationCap, Code2, ChevronDown, ChevronRight, ChevronUp, Building2 } from "lucide-react";
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
 import teamMembersData from "../data/teamMembers.json";
 import { getUniquePositions } from "../utils/getUniquePositions";
 
@@ -42,24 +39,16 @@ const Sidebar = () => {
     return 0;
   };
 
-  const activeIndex = menuItems.findIndex((item) => {
-    if (item.path === "/shop") {
-      return location.pathname === "/shop" || location.pathname === "/checkout";
-    }
-    if (item.path === "/projects") {
-      return location.pathname === "/projects" || location.pathname.startsWith("/projects/");
-    }
-    if (item.path === "/research") {
-      return location.pathname === "/research" || location.pathname.startsWith("/research/");
-    }
-    if (item.path === "/software") {
-      return location.pathname === "/software" || location.pathname.startsWith("/software/");
-    }
-    if (item.path === "/team") {
-      return location.pathname === "/team";
-    }
-    return item.path === location.pathname;
-  });
+  // Unified isActive logic for both mobile and desktop
+  const getIsActive = (item) => {
+    if (item.path === "/shop") return location.pathname === "/shop" || location.pathname === "/checkout";
+    if (item.path === "/projects") return location.pathname === "/projects" || location.pathname.startsWith("/projects/");
+    if (item.path === "/research") return location.pathname === "/research" || location.pathname.startsWith("/research/");
+    if (item.path === "/software") return location.pathname === "/software" || location.pathname.startsWith("/software/");
+    return location.pathname === item.path;
+  };
+
+  const activeIndex = menuItems.findIndex((item) => getIsActive(item));
   const positionIndex = getPositionIndex();
 
   return (
@@ -73,7 +62,6 @@ const Sidebar = () => {
               <span className="font-light text-sm whitespace-nowrap">BIG MATRIX RESEARCH</span>
             </div>
           </Link>
-
           <button onClick={() => setIsOpen(!isOpen)} className="p-2 z-50">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -82,13 +70,14 @@ const Sidebar = () => {
         {isOpen && (
           <nav className="border-t border-secondary/10">
             <ul className="py-2">
-              {menuItems.map((item, index) => {
+              {menuItems.map((item) => {
                 const Icon = item.icon;
-                const isActive = item.path === "/shop" ? location.pathname === "/shop" || location.pathname === "/checkout" : item.path === "/projects" ? location.pathname === "/projects" || location.pathname.startsWith("/projects/") : item.path === "/research" ? location.pathname === "/research" || location.pathname.startsWith("/research/") : item.path === "/software" ? location.pathname === "/software" || location.pathname.startsWith("/software/") : location.pathname === item.path;
+                const isActive = getIsActive(item);
+
                 if (item.path === "/team") {
                   return (
                     <li key={item.path}>
-                      <button onClick={() => setIsPeopleOpen(!isPeopleOpen)} className={`flex items-center justify-between w-full px-6 py-3 text-secondary hover:bg-secondary/10`}>
+                      <button onClick={() => setIsPeopleOpen(!isPeopleOpen)} className={`flex items-center justify-between w-full px-6 py-3 ${isActive ? "bg-secondary text-primary" : "text-secondary hover:bg-secondary/10"}`}>
                         <div className="flex items-center gap-4">
                           <Icon className="w-5 h-5" />
                           <span className="text-sm">{item.title}</span>
@@ -118,12 +107,7 @@ const Sidebar = () => {
 
                 return (
                   <li key={item.path}>
-                    <Link
-                      to={item.path}
-                      onClick={() => setIsOpen(false)}
-                      className={`flex items-center gap-4 px-6 py-3
-                      ${isActive ? "bg-secondary text-primary" : "text-secondary hover:bg-secondary/10"}`}
-                    >
+                    <Link to={item.path} onClick={() => setIsOpen(false)} className={`flex items-center gap-4 px-6 py-3 ${isActive ? "bg-secondary text-primary" : "text-secondary hover:bg-secondary/10"}`}>
                       <Icon className="w-5 h-5" />
                       <span className="text-sm">{item.title}</span>
                     </Link>
@@ -140,19 +124,14 @@ const Sidebar = () => {
         <div className="border-b bg border-white">
           <Link to="/">
             <div className="w-full max-w-[240px] mx-auto">
-              <img src="/logo-white.svg" alt="Big Matrix" className="w-full h-36 object-contain" /> {/* Ensured aspect ratio */}
+              <img src="/logo-white.svg" alt="Big Matrix" className="w-full h-36 object-contain" />
             </div>
           </Link>
         </div>
 
         <nav className="flex-1 relative py-8">
           {/* Active Background */}
-          <div
-            className="absolute left-1 w-full h-12 transition-transform duration-300 ease-in-out z-0"
-            style={{
-              transform: `translateY(${activeIndex * 48}px)`,
-            }}
-          >
+          <div className="absolute left-1 w-full h-12 transition-transform duration-300 ease-in-out z-0" style={{ transform: `translateY(${activeIndex * 48}px)` }}>
             <div className="absolute inset-0 right-[-24px] bg-secondary rounded-l-xl">
               <svg className="absolute right-0 top-0 h-full w-6 text-secondary" viewBox="0 0 24 48" fill="currentColor" preserveAspectRatio="none">
                 <path d="M0 0L0 48C8 48 24 40 24 24C24 8 8 0 0 0Z" />
@@ -161,17 +140,17 @@ const Sidebar = () => {
           </div>
 
           <ul className="relative z-10">
-            {menuItems.map((item, index) => {
+            {menuItems.map((item) => {
               const Icon = item.icon;
-              const isActive = item.path === location.pathname;
+              const isActive = getIsActive(item);
 
               if (item.path === "/team") {
                 return (
                   <li key={item.path} className="relative" onMouseEnter={() => setIsPeopleOpen(true)} onMouseLeave={() => setIsPeopleOpen(false)}>
-                    <Link to="/team" className="flex items-center justify-between w-full h-12 px-6 transition-colors duration-300">
+                    <Link to="/team" className={`flex items-center justify-between w-full h-12 px-6 transition-colors duration-300 ${isActive ? "text-primary" : "text-secondary"}`}>
                       <div className="flex items-center gap-4">
-                        <Icon className={`w-5 h-5 ${isActive ? "text-primary" : "text-secondary"}`} />
-                        <span className={`text-sm ${isActive ? "text-primary font-medium" : "text-secondary"}`}>{item.title}</span>
+                        <Icon className="w-5 h-5" />
+                        <span className={`text-sm ${isActive ? "font-medium" : ""}`}>{item.title}</span>
                       </div>
                       {isPeopleOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                     </Link>
@@ -192,9 +171,9 @@ const Sidebar = () => {
 
               return (
                 <li key={item.path} className="h-12">
-                  <Link to={item.path} className="flex items-center h-full gap-4 px-6 transition-colors duration-300">
-                    <Icon className={`w-5 h-5 ${isActive ? "text-primary" : "text-secondary"}`} />
-                    <span className={`text-sm ${isActive ? "text-primary font-medium" : "text-secondary"}`}>{item.title}</span>
+                  <Link to={item.path} className={`flex items-center h-full gap-4 px-6 transition-colors duration-300 ${isActive ? "text-primary" : "text-secondary"}`}>
+                    <Icon className="w-5 h-5" />
+                    <span className={`text-sm ${isActive ? "font-medium" : ""}`}>{item.title}</span>
                   </Link>
                 </li>
               );

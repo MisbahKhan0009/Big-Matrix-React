@@ -31,7 +31,9 @@ const Partners = () => {
       <div className="container w-11/12 mx-auto px-4">
         {/* Partners Logo Section */}
         <div className="py-20">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Trusted Partners</h2>
+        <motion.h2 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-6xl font-thin text-center mb-12 text-primary">
+              Our trusted partners
+            </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {partners.map((partner) => (
               <motion.div 
