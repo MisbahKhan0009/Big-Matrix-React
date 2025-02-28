@@ -1,105 +1,104 @@
 import { Building2, ArrowRight, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Banner from "../Shared/Banner";
 import partnersData from "../data/partners.json";
 
 const Partners = () => {
   const { partners } = partnersData;
-  const stats = partnersData.stats || {
-    successRate: "95%",
-    activePartners: "+1000",
-    industryAwards: "+50",
-    globalOffices: "+25",
-  };
-  const categories = partnersData.categories || ["All", ...new Set(partners.map((p) => p.category))];
-
+  const categories = ["All", ...new Set(partners.map((p) => p.category))];
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const filteredProjects = selectedCategory === "All" ? partners : partners.filter((p) => p.category === selectedCategory);
+  const filteredPartners = selectedCategory === "All" 
+    ? partners 
+    : partners.filter((p) => p.category === selectedCategory);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === filteredPartners.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(timer);
+  }, [filteredPartners.length]);
 
   return (
     <div className="flex-grow">
-      {/* Hero Section */}
-      <Banner bannerText={"Project"} />;
+      <Banner bannerText={"Partners"} bannerBg={"/partner-banner.jpg"} bannerIcon={Building2} />
+      
       <div className="container w-11/12 mx-auto px-4">
         {/* Partners Logo Section */}
         <div className="py-20">
           <h2 className="text-3xl font-bold text-center mb-12">Our Trusted Partners</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {partners.map((partner) => (
-              <motion.div key={partner.id} className="flex items-center justify-center p-4" whileHover={{ scale: 1.05 }}>
-                <img src={partner.logo} alt={partner.name} className="h-16 w-auto" />
+              <motion.div 
+                key={partner.id} 
+                className="flex flex-col items-center justify-center p-4 bg-white rounded-xl shadow-lg"
+                whileHover={{ scale: 1.05 }}
+              >
+                <a href={partner.link} target="_blank" rel="noopener noreferrer">
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name} 
+                    className="h-24 w-auto mb-4 object-contain" 
+                  />
+                </a>
+                <h3 className="text-lg font-semibold text-center mb-2">{partner.name}</h3>
+                <p className="text-sm text-gray-600 text-center mb-4">{partner.category}</p>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Success Stories Section */}
-        <div className="py-20">
-          <h2 className="text-3xl font-bold text-center mb-4">Our Success Stories</h2>
-          <p className="text-center text-gray-600 mb-12">Explore our portfolio of successful partner collaborations</p>
-
-          <div className="flex gap-4 justify-center mb-8">
-            {categories.map((category) => (
-              <button key={category} onClick={() => setSelectedCategory(category)} className={`px-4 py-2 rounded-full ${selectedCategory === category ? "bg-primary text-white" : "bg-gray-100 hover:bg-gray-200"}`}>
-                {category}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
-              <motion.div key={project.id} className="bg-white rounded-xl overflow-hidden shadow-lg" whileHover={{ y: -10 }}>
-                <div className="relative h-48">
-                  <img src={project.projectImage} alt={project.projectTitle} className="w-full h-full object-cover" />
-                  <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">{project.category}</div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">{project.projectTitle}</h3>
-                  <p className="text-gray-600 mb-4">{project.projectDescription}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Testimonials Section */}
+        {/* Updated Testimonials Section */}
         <div className="py-20">
           <h2 className="text-3xl font-bold text-center mb-4">What Our Partners Say</h2>
-          <p className="text-center text-gray-600 mb-12">Discover why leading companies choose to partner with us for their critical projects</p>
+          <p className="text-center text-gray-600 mb-12">
+            Discover why leading companies choose to partner with us
+          </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {partners.slice(0, 3).map((partner) => (
-              <motion.div key={partner.id} className="bg-white p-6 rounded-xl shadow-lg" whileHover={{ scale: 1.02 }}>
-                <div className="flex items-center gap-4 mb-4">
-                  <img src={partner.logo} alt={partner.name} className="w-12 h-12 rounded-full" />
+          <div className="relative w-full max-w-4xl mx-auto overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5 }}
+                className="bg-white p-8 rounded-xl shadow-lg"
+              >
+                <div className="flex items-center gap-6 mb-6">
+                  <img
+                    src={filteredPartners[currentIndex].logo}
+                    alt={filteredPartners[currentIndex].name}
+                    className="w-20 h-20 object-contain"
+                  />
                   <div>
-                    <h4 className="font-semibold">{partner.name}</h4>
-                    <p className="text-gray-600 text-sm">Industry Partner</p>
+                    <h4 className="text-xl font-semibold">{filteredPartners[currentIndex].name}</h4>
+                    <p className="text-gray-600">{filteredPartners[currentIndex].category}</p>
                   </div>
                 </div>
-                <p className="text-gray-700">{partner.review}</p>
+                <p className="text-gray-700 text-lg italic">
+                  "{filteredPartners[currentIndex].review}"
+                </p>
               </motion.div>
-            ))}
-          </div>
-        </div>
+            </AnimatePresence>
 
-        {/* Stats Section */}
-        <div className="py-20 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {Object.entries(stats).map(([key, value]) => (
-            <motion.div key={key} className="text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h3 className="text-4xl font-bold text-primary mb-2">{value}</h3>
-              <p className="text-gray-600">{key.replace(/([A-Z])/g, " $1").trim()}</p>
-            </motion.div>
-          ))}
+            <div className="flex justify-center gap-2 mt-6">
+              {filteredPartners.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex ? "bg-primary w-4" : "bg-gray-300"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

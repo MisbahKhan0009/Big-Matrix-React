@@ -39,7 +39,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-primary text-secondary mt-20">
+    <footer className="relative bg-primary text-secondary mt-40"> {/* Changed mt-20 to mt-40 */}
       <div className="absolute inset-0 overflow-x-hidden mt-6 bg-primary skew-y-2 -translate-y-16 origin-top-right -z-10" />
       <div className="container mx-auto max-w-7xl px-4 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
