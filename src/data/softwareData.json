@@ -16,6 +16,23 @@
       "technologies": ["React", "Python", "TensorFlow", "Docker", "AWS"],
       "demoLink": "https://demo.mrianalyzer.com",
       "documentationLink": "https://docs.mrianalyzer.com"
+    },
+    {
+      "id": 2,
+      "title": "Comprehensive Breast Cancer Assessment System",
+      "shortDescription": "Multimodal deep learning framework for breast cancer diagnosis",
+      "longDescription": "This project focuses on building a multimodal deep learning framework to improve breast cancer diagnosis by combining image segmentation and clinical data analysis. The model will process mammography images and corresponding patient data to perform segmentation and predict relevant clinical features. This integrative approach aims to enhance diagnostic accuracy and provide a comprehensive assessment for breast cancer evaluation.",
+      "image": "/photos/Breast-cancer-UI.png",
+      "features": [
+        "Multimodal deep learning analysis",
+        "Mammography image segmentation",
+        "Clinical data integration",
+        "Predictive feature analysis",
+        "Comprehensive diagnostic assessment"
+      ],
+      "technologies": ["Deep Learning", "Image Segmentation", "Clinical Analytics", "React", "Python"],
+      "demoLink": "https://segmentatio-ui.pages.dev/",
+      "documentationLink": "https://segmentatio-ui.pages.dev/"
     }
   ]
 }

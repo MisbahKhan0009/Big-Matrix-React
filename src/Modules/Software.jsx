@@ -19,7 +19,7 @@ const Software = () => {
             <div className="p-8">
               <h2 className="text-4xl w-full text-center mx-auto text-primary mb-8">Software List</h2>
 
-              <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {softwareData.software.map((software) => (
                   <motion.section
                     key={software.id}
@@ -32,7 +32,7 @@ const Software = () => {
                       <img 
                         src={software.image} 
                         alt={software.title} 
-                        className="rounded-xl max-w-4xl mx-auto shadow-md w-full hover:shadow-xl transition-shadow duration-300"
+                        className="rounded-xl shadow-md w-full h-64 object-cover hover:shadow-xl transition-shadow duration-300"
                       />
                     </div>
                     <div className="flex items-center gap-2 mb-3">

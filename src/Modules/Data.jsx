@@ -40,10 +40,16 @@ const Data = () => {
   };
 
   return (
-    <div className="w-screen">
+    <div className="w-full"> {/* Changed from w-screen */}
       <Banner bannerText={"Research Data"} bannerBg={"/DataAndSoft.webp"} bannerIcon={Database} />
 
-      <motion.div className="container max-w-[75vw] mx-auto overflow-x-hidden no-scroll" variants={containerVariants} initial="hidden" animate="visible" viewport={{ once: true }}>
+      <motion.div 
+        className="container mx-auto px-4 overflow-x-hidden" // Updated container class
+        variants={containerVariants} 
+        initial="hidden" 
+        animate="visible" 
+        viewport={{ once: true }}
+      >
         <motion.div className="my-10" variants={sectionVariants}>
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-6">
             <h2 className="text-xl sm:text-2xl font-bold text-primary break-words">LINEAR TIME INVARIANT SYSTEM</h2>
