@@ -45,7 +45,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Company Info */}
           <div className="space-y-6">
-            <img src="/logo-white.svg" alt="Big Matrix" className="h-16" />
+            <img 
+              src="/logo-white.svg" 
+              alt="Big Matrix" 
+              className="h-auto w-60 object-contain" // Updated image styling
+            />
             <div className="space-y-4">
               {contactInfo.map(({ icon: Icon, text, label }) => (
                 <div key={label} className="flex items-center gap-3 text-secondary/90 hover:text-secondary transition-colors">

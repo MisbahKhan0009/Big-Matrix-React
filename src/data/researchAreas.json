@@ -130,7 +130,7 @@
       "id": "Tools & Software",
       "title": "Tools & Software",
       "description": "In control theory, computational methods refer to the techniques and algorithms used to analyze, design, and implement control systems using computers. These methods involve the application of mathematical models, simulations, and algorithms to study the behavior of dynamic systems and to design controllers that can regulate or manipulate their behavior.",
-      "image": "/photos/sm.jpg",
+      "image": "/software.jpg",
       "projects": [
         {
           "id": 1,
@@ -146,6 +146,53 @@
           "id": 3,
           "title": "Algebraic Riccati Equation",
           "description": "Numerical methods for solving continuous and discrete-time algebraic Riccati equations."
+        }
+      ]
+    },
+
+    {
+      "id": "llm",
+      "title": "Large Language Model (LLM)",
+      "description": "Exploring and developing advanced large language models for various applications, focusing on natural language processing, text generation, and AI-powered communication systems. Our research encompasses model architecture optimization, fine-tuning strategies, and practical applications in different domains.",
+      "image": "/llm.jpeg",
+      "projects": [
+        {
+          "id": 1,
+          "title": "Fine-tuning LLMs for Domain-Specific Tasks",
+          "description": "Research on optimizing large language models for specialized domains, focusing on medical terminology, scientific literature, and technical documentation."
+        },
+        {
+          "id": 2,
+          "title": "Efficient LLM Deployment Strategies",
+          "description": "Development of methods for efficient deployment of large language models in resource-constrained environments, including model compression and optimization techniques."
+        },
+        {
+          "id": 3,
+          "title": "Multilingual LLM Applications",
+          "description": "Creating and adapting large language models for multilingual applications, with emphasis on low-resource languages and cross-lingual transfer learning."
+        }
+      ]
+    },
+    {
+      "id": "biological-computation",
+      "title": "Biological Computation",
+      "description": "Exploring computational approaches to solve complex biological problems, combining principles from computer science, mathematics, and biology to develop innovative solutions for biological data analysis and modeling.",
+      "image": "/biocomp.jpg",
+      "projects": [
+        {
+          "id": 1,
+          "title": "Genomic Data Analysis and Visualization",
+          "description": "Development of computational tools for analyzing and visualizing large-scale genomic data, focusing on sequence analysis, variant calling, and structural variations."
+        },
+        {
+          "id": 2,
+          "title": "Protein Structure Prediction",
+          "description": "Implementation of advanced algorithms for protein structure prediction and analysis, incorporating machine learning techniques with biological principles."
+        },
+        {
+          "id": 3,
+          "title": "Systems Biology Modeling",
+          "description": "Creating computational models of biological systems to understand cellular processes, metabolic networks, and gene regulatory networks."
         }
       ]
     }

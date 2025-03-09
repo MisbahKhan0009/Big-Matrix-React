@@ -31,6 +31,22 @@
       "category": "Healthcare",
       "link": "https://www.bdspecializedhospital.com/",
       "review": "Big Matrix Research's expertise has helped us implement state-of-the-art diagnostic tools and improve our patient care systems."
+    },
+    {
+      "id": 5,
+      "name": "Krishi Shwapno",
+      "logo": "/partners/krishi-shwapno.png",
+      "category": "Agriculture Technology",
+      "link": "https://krishishwapno.com/",
+      "review": "Big Matrix Research's AI solutions have enabled us to optimize crop growth and improve agricultural productivity."
+    },
+    {
+      "id": 6,
+      "name": "Diagnotech-Ai.",
+      "logo": "/partners/D-tech.png",
+      "category": "Technology Innovation",
+      "link": "https://diagnotech-ai.com/",
+      "review": "Big Matrix Research's AI solutions have significantly improved our workflows. Allowing us to focus on what matters most: innovation"
     }
   ]
 }

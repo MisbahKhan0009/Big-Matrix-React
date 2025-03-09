@@ -1,5 +1,5 @@
 // @ts-ignore
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BookText, Database, FlaskConical, FolderKanban, Home, Menu, Send, Users2, X, ShoppingBag, GraduationCap, Code2, ChevronDown, ChevronRight, ChevronUp, Building2 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import teamMembersData from "../data/teamMembers.json";
@@ -8,8 +8,31 @@ import { getUniquePositions } from "../utils/getUniquePositions";
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isPeopleOpen, setIsPeopleOpen] = useState(false);
+  const [peopleHoverTimer, setPeopleHoverTimer] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const handlePeopleMouseEnter = () => {
+    const timer = setTimeout(() => {
+      setIsPeopleOpen(true);
+    }, 100);
+    setPeopleHoverTimer(timer);
+  };
+
+  const handlePeopleMouseLeave = () => {
+    if (peopleHoverTimer) {
+      clearTimeout(peopleHoverTimer);
+    }
+    setIsPeopleOpen(false);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (peopleHoverTimer) {
+        clearTimeout(peopleHoverTimer);
+      }
+    };
+  }, [peopleHoverTimer]);
 
   const positions = getUniquePositions(teamMembersData);
 
@@ -124,7 +147,7 @@ const Sidebar = () => {
         <div className="border-b bg border-white">
           <Link to="/">
             <div className="w-full max-w-[240px] mx-auto">
-              <img src="/logo-white.svg" alt="Big Matrix" className="w-full h-36 object-contain" />
+              <img src="/logo-white.svg" alt="Big Matrix" className="w-full h-36 object-cover" />
             </div>
           </Link>
         </div>
@@ -146,7 +169,12 @@ const Sidebar = () => {
 
               if (item.path === "/team") {
                 return (
-                  <li key={item.path} className="relative" onMouseEnter={() => setIsPeopleOpen(true)} onMouseLeave={() => setIsPeopleOpen(false)}>
+                  <li 
+                    key={item.path} 
+                    className="relative" 
+                    onMouseEnter={handlePeopleMouseEnter}
+                    onMouseLeave={handlePeopleMouseLeave}
+                  >
                     <Link to="/team" className={`flex items-center justify-between w-full h-12 px-6 transition-colors duration-300 ${isActive ? "text-primary" : "text-secondary"}`}>
                       <div className="flex items-center gap-4">
                         <Icon className="w-5 h-5" />
