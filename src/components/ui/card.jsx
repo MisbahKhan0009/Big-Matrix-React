@@ -35,13 +35,13 @@ const Card = ({ memberData }) => {
               ))}
             </div>
           ) : (
-            memberData.google_scholar && (
+            memberData.email && (
               <a 
-                href={memberData.google_scholar} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="group flex font-light rounded-[4px] items-center py-1 px-2 bg-primary border border-primary text-secondary hover:bg-secondary hover:text-primary transition-all duration-300 absolute bottom-3 right-3"
-              >
+              href={`mailto:${memberData.email}`}
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="group flex font-light rounded-[4px] items-center py-1 px-2 bg-primary border border-primary text-secondary hover:bg-secondary hover:text-primary transition-all duration-300 absolute bottom-3 right-3"
+            >
                 Contact
                 <ArrowRight className="h-4 w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 transition-all duration-300" />
               </a>
