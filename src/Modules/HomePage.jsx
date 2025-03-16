@@ -70,28 +70,30 @@ const HomePage = () => {
         <div className="container mx-auto min-h-screen flex items-center justify-center px-4 py-12 lg:py-24 relative">
           <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto space-y-6 lg:space-y-8">
             {/* BIG MATRIX RESEARCH with Sparkle Effect */}
-            <motion.h1 variants={textRevealVariants} initial="hidden" animate="visible" className="text-4xl flex flex-col items-center justify-center lg:text-6xl font-bold tracking-tight text-primary relative">
+            {/* <motion.h1 variants={textRevealVariants} initial="hidden" animate="visible" className="text-4xl flex flex-col items-center justify-center lg:text-6xl font-bold tracking-tight text-primary relative">
               BIG MATRIX RESEARCH
-              {/* Gradient Lines and Sparkles Container */}
-              {/* <div className="relative mt-2 w-full h-16 flex items-center justify-center">
-               
-                <div className="absolute top-0 bg-gradient-to-r from-transparent via-[#0d7a64] to-transparent h-[2px] blur-sm" />
-                <div className="absolute top-0 bg-gradient-to-r from-transparent via-[#0d7a64] to-transparent h-px w-1/2" />
-                <div className="absolute top-0 bg-gradient-to-r from-transparent via-[#0d7a64] to-transparent h-[5px] w-1/4 blur-sm" />
-                <div className="absolute top-0 bg-gradient-to-r from-transparent via-[#0d7a64] to-transparent h-px w-1/4" />
+             
+            </motion.h1> */}
 
-                
-                <div className="absolute w-full flex justify-center" style={{ top: "8px" }}>
-                  <SparklesCore background="transparent" minSize={0.4} maxSize={1} particleDensity={2000} className="w-1/2 h-8" particleColor="#000000" />
-                </div>
-
-                <div className="absolute inset-0 w-full h-full [mask-image:radial-gradient(250px_150px_at_center,transparent_20%,white)]" />
-              </div> */}
-            </motion.h1>
+            {/* Logo instead of text */}
+            <motion.div 
+              variants={textRevealVariants} 
+              initial="hidden" 
+              animate="visible" 
+              className="w-full max-w-[300px] lg:max-w-[400px]"
+            >
+              <img 
+                src="/logo-green.png" 
+                alt="Big Matrix Research Logo" 
+                className="w-full h-auto"
+              />
+            </motion.div>
 
             {/* Tagline */}
             <motion.div variants={textRevealVariants} initial="hidden" animate="visible" className="relative overflow-hidden w-fit px-4">
-              <p className="text-lg lg:text-xl font-light px-4 py-2 bg-primary  rounded-[6px] text-secondary">Transforming Complex Data into Actionable Insights</p>
+              <p className="text-lg lg:text-xl font-light px-4 py-2 bg-primary rounded-[6px] text-secondary">
+                Transforming Complex Data into Actionable Insights
+              </p>
             </motion.div>
 
             {/* Description */}

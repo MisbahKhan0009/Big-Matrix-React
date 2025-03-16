@@ -15,7 +15,7 @@ const Sidebar = () => {
   const handlePeopleMouseEnter = () => {
     const timer = setTimeout(() => {
       setIsPeopleOpen(true);
-    }, 100);
+    }, 200);
     setPeopleHoverTimer(timer);
   };
 

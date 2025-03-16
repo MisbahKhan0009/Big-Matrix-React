@@ -5,6 +5,26 @@
       "title": "AI in Healthcare",
       "description": "Exploring innovative applications of artificial intelligence in healthcare, focusing on diagnostic tools, patient care optimization, and medical image analysis.",
       "image": "/ai-healthcare.jpg",
+      "teamLeader": {
+        "name": "M. Monir uddin",
+        "designation": "Professor, Department of Mathematics & Physics",
+        "photo": "photos/monir_400_e9mwlZu.jpg",
+        "email": "monir.uddin@northsouth.edu"
+      },
+      "teamMembers": [
+        {
+          "name": "Kazi Shahriar Sanjid",
+          "designation": "Research Assistant (RA)",
+          "photo": "photos/sanjid_RcFg8Tz.jpg",
+          "email": "ratimshariar@gmail.com"
+        },
+        {
+          "name": "Md. Shakib Shahariar Junayed",
+          "designation": "Research Assistant (RA)",
+          "photo": "photos/junayed_yf48ahb.jpg",
+          "email": "junayed12sents@gmail.com"
+        }
+      ],
       "projects": [
         {
           "id": 1,
