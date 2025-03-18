@@ -1,12 +1,12 @@
 import Banner from "../Shared/Banner";
-import { Code2, ArrowRight } from "lucide-react";
+import { Code2, ArrowRight, Package, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import softwareData from "../data/softwareData.json";
 
 const Software = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 to-primary/10">
       <Banner bannerText={"Research Software"} bannerBg={"/software.jpg"} bannerIcon={Code2} />
 
       <div className="container mx-auto px-4 py-12">
@@ -14,41 +14,61 @@ const Software = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white overflow-hidden"
           >
-            <div className="p-8">
-              <h2 className="text-4xl w-full text-center mx-auto text-primary mb-8">Software List</h2>
+            <h2 className="text-5xl font-light text-center text-primary mb-12">Software List</h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {softwareData.software.map((software) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {softwareData.software.map((software) => (
+                <Link 
+                  key={software.id}
+                  to={`/software/${software.id}`}
+                  className="block group"
+                >
                   <motion.section
-                    key={software.id}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: software.id * 0.1 }}
-                    className="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow duration-300"
+                    className="relative h-full bg-white/30 backdrop-blur-md rounded-2xl p-6 
+                             border border-white/30 shadow-lg hover:shadow-2xl 
+                             transition-all duration-500 overflow-hidden
+                             hover:bg-white/40 group-hover:scale-[1.02]"
                   >
-                    <div className="mb-8">
-                      <img 
-                        src={software.image} 
-                        alt={software.title} 
-                        className="rounded-xl shadow-md w-full h-64 object-cover hover:shadow-xl transition-shadow duration-300"
-                      />
+                    {/* Decorative Elements */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16" />
+                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/5 rounded-full -ml-12 -mb-12" />
+                    
+                    <div className="relative">
+                      {/* Image Container */}
+                      <div className="mb-8 rounded-xl overflow-hidden group-hover:shadow-xl transition-all duration-500">
+                        <img 
+                          src={software.image} 
+                          alt={software.title} 
+                          className="w-full h-64 object-cover transform transition-transform duration-700 
+                                   group-hover:scale-110"
+                        />
+                      </div>
+
+                      {/* Content */}
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-3">
+                          <Package className="text-primary w-6 h-6" />
+                          <h3 className="text-xl font-semibold text-primary">{software.title}</h3>
+                        </div>
+
+                        <p className="text-gray-600 leading-relaxed line-clamp-3">
+                          {software.shortDescription}
+                        </p>
+
+                        <div className="pt-4 flex items-center text-primary font-medium group/link">
+                          <span className="mr-2">Learn More</span>
+                          <ExternalLink className="w-4 h-4 transform transition-transform duration-300 
+                                                 group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <ArrowRight className="text-primary w-5 h-5" />
-                      <h3 className="text-lg font-bold text-primary">{software.title}</h3>
-                    </div>
-                    <p className="text-gray-700 leading-relaxed mb-4">{software.shortDescription}</p>
-                    <Link 
-                      to={`/software/${software.id}`}
-                      className="text-blue-500 hover:underline inline-flex items-center gap-2"
-                    >
-                      Read More <ArrowRight className="w-4 h-4" />
-                    </Link>
                   </motion.section>
-                ))}
-              </div>
+                </Link>
+              ))}
             </div>
           </motion.div>
         </div>

@@ -33,6 +33,23 @@
       "technologies": ["Deep Learning", "Image Segmentation", "Clinical Analytics", "React", "Python"],
       "demoLink": "https://segmentatio-ui.pages.dev/",
       "documentationLink": "https://segmentatio-ui.pages.dev/"
+    },
+    {
+      "id": 3,
+      "title": "Big-Matrix Academy",
+      "shortDescription": "Comprehensive e-learning platform for AI and Data Science education",
+      "longDescription": "Big-Matrix Academy is an innovative e-learning platform designed to provide high-quality education in Deep Learning, Machine Learning, and Data Science. Our platform offers interactive courses, hands-on projects, and real-world applications to help students master the fundamentals and advanced concepts of AI and data science. With expert-led instruction and practical exercises, we ensure students develop the skills needed for today's tech-driven world.",
+      "image": "/photos/academy.png",
+      "features": [
+        "Interactive learning modules",
+        "Hands-on coding exercises",
+        "Real-world project assignments",
+        "Expert-led video tutorials",
+        "Community learning support"
+      ],
+      "technologies": ["Deep Learning", "Machine Learning", "Data Science", "React", "Python"],
+      "demoLink": "https://bmacademy.pages.dev/",
+      "documentationLink": "https://bmacademy.pages.dev/"
     }
   ]
 }

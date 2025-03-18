@@ -11,20 +11,7 @@
         "photo": "photos/monir_400_e9mwlZu.jpg",
         "email": "monir.uddin@northsouth.edu"
       },
-      "teamMembers": [
-        {
-          "name": "Kazi Shahriar Sanjid",
-          "designation": "Research Assistant (RA)",
-          "photo": "photos/sanjid_RcFg8Tz.jpg",
-          "email": "ratimshariar@gmail.com"
-        },
-        {
-          "name": "Md. Shakib Shahariar Junayed",
-          "designation": "Research Assistant (RA)",
-          "photo": "photos/junayed_yf48ahb.jpg",
-          "email": "junayed12sents@gmail.com"
-        }
-      ],
+
       "projects": [
         {
           "id": 1,
@@ -69,6 +56,12 @@
       "title": "Machine Learning & Deep Learning Algorithm",
       "description": "Advancing the frontiers of deep learning through innovative architectures, algorithms, and applications in various domains.",
       "image": "deep-learning.jpg",
+      "teamLeader": {
+        "name": "M. Monir uddin",
+        "designation": "Professor, Department of Mathematics & Physics",
+        "photo": "photos/monir_400_e9mwlZu.jpg",
+        "email": "monir.uddin@northsouth.edu"
+      },
       "projects": [
         {
           "id": 1,
@@ -87,6 +80,12 @@
       "title": "Mathematical Modeling",
       "description": "Developing sophisticated mathematical models and computational methods to solve complex real-world problems in science and engineering.",
       "image": "photos/m2m.png",
+      "teamLeader": {
+        "name": "M. Monir uddin",
+        "designation": "Professor, Department of Mathematics & Physics",
+        "photo": "photos/monir_400_e9mwlZu.jpg",
+        "email": "monir.uddin@northsouth.edu"
+      },
       "projects": [
         {
           "id": 1,
@@ -105,6 +104,12 @@
       "title": "MOR of Large-Scale Dynamical System",
       "description": "Model order reduction (MOR) is a technique for reducing the computational complexity of mathematical models in numerical simulations. As such it is closely related to the concept of metamodeling, with applications in all areas of mathematical modelling. Many modern mathematical models of real-life processes pose challenges when used in numerical simulation.",
       "image": "/photos/mor.jpg",
+      "teamLeader": {
+        "name": "M. Monir uddin",
+        "designation": "Professor, Department of Mathematics & Physics",
+        "photo": "photos/monir_400_e9mwlZu.jpg",
+        "email": "monir.uddin@northsouth.edu"
+      },
       "projects": [
         {
           "id": 1,
@@ -128,6 +133,12 @@
       "title": "Sparse Matrix Solver",
       "description": "In control theory, computational methods refer to the techniques and algorithms used to analyze, design, and implement control systems using computers. These methods involve the application of mathematical models, simulations, and algorithms to study the behavior of dynamic systems and to design controllers that can regulate or manipulate their behavior.",
       "image": "/photos/sm.jpg",
+      "teamLeader": {
+        "name": "M. Monir uddin",
+        "designation": "Professor, Department of Mathematics & Physics",
+        "photo": "photos/monir_400_e9mwlZu.jpg",
+        "email": "monir.uddin@northsouth.edu"
+      },
       "projects": [
         {
           "id": 1,
@@ -151,6 +162,12 @@
       "title": "Tools & Software",
       "description": "In control theory, computational methods refer to the techniques and algorithms used to analyze, design, and implement control systems using computers. These methods involve the application of mathematical models, simulations, and algorithms to study the behavior of dynamic systems and to design controllers that can regulate or manipulate their behavior.",
       "image": "/software.jpg",
+      "teamLeader": {
+        "name": "Kazi Shahriar Sanjid",
+        "designation": "Research Assistant (RA) at North South University, Dhaka, Bangladesh",
+        "photo": "photos/sanjid_RcFg8Tz.jpg",
+        "email": "ratimshariar@gmail.com"
+      },
       "projects": [
         {
           "id": 1,
