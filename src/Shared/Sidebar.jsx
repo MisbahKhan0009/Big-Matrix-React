@@ -45,7 +45,7 @@ const Sidebar = () => {
     { title: "Teaching & Training", path: "/teaching", icon: GraduationCap },
     { title: "Publications & Talks", path: "/publications", icon: BookText },
     { title: "Research Data", path: "/data", icon: Database },
-    { title: "Research Product", path: "/software", icon: Code2 },
+    { title: "R&D Product", path: "/software", icon: Code2 },
     { title: "Shop", path: "/shop", icon: ShoppingBag },
     { title: "Contact", path: "/contact", icon: Send },
   ];
@@ -143,7 +143,7 @@ const Sidebar = () => {
       </div>
 
       {/* Desktop Sidebar */}
-      <div className="hidden lg:flex fixed z-50 left-0 top-0 h-full w-64 shadow-lg bg-primary text-secondary flex-col overflow-hidden">
+      <div className="hidden lg:flex fixed z-50 left-0 top-0  pt-6 h-full w-64 shadow-lg bg-primary text-secondary  flex-col overflow-hidden">
         <div className="border-b bg border-white">
           <Link to="/">
             <div className="w-full max-w-[240px] mx-auto">

@@ -63,7 +63,7 @@ const TeamMembers = () => {
 
   return (
     <div className="w-full">
-      <Banner bannerText={"Team Members"} bannerBg={"/team.jpg"} bannerIcon={Users} />
+      <Banner bannerText={"Team Members"} bannerBg={"/team.png"} bannerIcon={Users} />
 
       {/* Add Advisor Testimonials Slider */}
       {selectedPosition === "Advisor" && (
