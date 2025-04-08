@@ -81,7 +81,7 @@ const Sidebar = () => {
         <div className="flex items-center justify-between p-4 max-w-full mx-auto">
           <Link to="/">
             <div className="flex items-center gap-2 z-50">
-              <img src="/logo-white.svg" alt="Big Matrix" className="h-8 w-8" />
+              <img src="/new logo.jpg" alt="Big Matrix" className="h-8 w-8 pt-6" />
               <span className="font-light text-sm whitespace-nowrap">BIG MATRIX RESEARCH</span>
             </div>
           </Link>
@@ -147,7 +147,7 @@ const Sidebar = () => {
         <div className="border-b bg border-white">
           <Link to="/">
             <div className="w-full max-w-[240px] mx-auto">
-              <img src="/logo-white.svg" alt="Big Matrix" className="w-full h-36 object-cover" />
+              <img src="/new logo.jpg" alt="Big Matrix" className="w-full h-36 object-cover" />
             </div>
           </Link>
         </div>
@@ -169,12 +169,7 @@ const Sidebar = () => {
 
               if (item.path === "/team") {
                 return (
-                  <li 
-                    key={item.path} 
-                    className="relative" 
-                    onMouseEnter={handlePeopleMouseEnter}
-                    onMouseLeave={handlePeopleMouseLeave}
-                  >
+                  <li key={item.path} className="relative" onMouseEnter={handlePeopleMouseEnter} onMouseLeave={handlePeopleMouseLeave}>
                     <Link to="/team" className={`flex items-center justify-between w-full h-12 px-6 transition-colors duration-300 ${isActive ? "text-primary" : "text-secondary"}`}>
                       <div className="flex items-center gap-4">
                         <Icon className="w-5 h-5" />

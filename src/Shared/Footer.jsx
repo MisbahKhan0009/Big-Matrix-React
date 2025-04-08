@@ -46,7 +46,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <img 
-              src="/logo-white.svg" 
+              src="/new logo.jpg" 
               alt="Big Matrix" 
               className="h-auto w-60 object-contain" // Updated image styling
             />
