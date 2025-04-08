@@ -18,7 +18,7 @@ const Card = ({ memberData }) => {
   return (
     <div className="flex flex-col bg-white/10 backdrop-blur-sm rounded-[6px] shadow-2xl overflow-hidden mx-auto my-5 border-2 border-primary/30 transform transition duration-300  hover:shadow-2xl hover:scale-105 h-5/6 w-full relative">
       <div className="flex w-11/12 justify-center items-start pt-2">
-        <img src={memberData.photo} alt={memberData.name} className="rounded-full  w-auto h-24  border-primary border-2 mx-1 object-cover" />
+        <img src={memberData.photo} alt={memberData.name} className="rounded-full  w-24 h-24  border-primary border-2 mx-1 object-cover" />
         <div className="flex ml-1 flex-col">
           <h2 className="text-black text-2xl mb-2 font-base">{memberData.name}</h2>
           <p className="text-gray-600 text-sm mb-5">{memberData.designation}</p>

@@ -81,7 +81,7 @@ const Sidebar = () => {
         <div className="flex items-center justify-between p-4 max-w-full mx-auto">
           <Link to="/">
             <div className="flex items-center gap-2 z-50">
-              <img src="/new logo.jpg" alt="Big Matrix" className="h-8 w-8 pt-6" />
+              <img src="/logo-white.jpg" alt="Big Matrix" className="h-8 w-8 pt-6" />
               <span className="font-light text-sm whitespace-nowrap">BIG MATRIX RESEARCH</span>
             </div>
           </Link>
@@ -147,7 +147,7 @@ const Sidebar = () => {
         <div className="border-b bg border-white">
           <Link to="/">
             <div className="w-full max-w-[240px] mx-auto">
-              <img src="/new logo.jpg" alt="Big Matrix" className="w-full h-36 object-cover" />
+              <img src="/logo-white.jpg" alt="Big Matrix" className="w-full h-44 object-cover" />
             </div>
           </Link>
         </div>
