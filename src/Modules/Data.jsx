@@ -105,7 +105,10 @@ const Data = () => {
           </div>
           <p className="text-gray-600 mb-4 whitespace-normal">Discover our comprehensive machine learning datasets, suitable for various AI and deep learning applications.</p>
           <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-x-auto">
-            <MachineLearningTable data={machineLearningData} headers={["DATA CLASS", "DATA NAME", "REPOSITORY LINK"]} />
+            <MachineLearningTable 
+              data={machineLearningData} 
+              headers={["DATA CLASS", "DATA NAME", "REPOSITORY LINK"]} 
+            />
           </div>
         </motion.div>
       </motion.div>

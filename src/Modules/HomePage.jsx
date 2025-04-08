@@ -83,7 +83,7 @@ const HomePage = () => {
               className="w-full max-w-[300px] lg:max-w-[400px]"
             >
               <img 
-                src="/logo-green.png" 
+                src="/logo-white.jpg" 
                 alt="Big Matrix Research Logo" 
                 className="w-full h-auto"
               />

@@ -2,46 +2,46 @@
   {
     "dataClass": "Generalized System",
     "index": "Index-1",
-    "repositoryLink": "link1"
+    "repositoryLink": "https://github.com/uddinmonir/systemDATA/tree/main/1st_order/generalized"
   },
   {
     "dataClass": "DAE System",
     "index": "Index-2",
-    "repositoryLink": "link2"
+    "repositoryLink": "https://github.com/uddinmonir/systemDATA/tree/main/2nd_order/dae"
   },
   {
     "dataClass": "Generalized System",
     "index": "Index-3",
-    "repositoryLink": "link3"
+    "repositoryLink": "https://github.com/uddinmonir/systemDATA/tree/main/1st_order/generalized"
   },
   {
     "dataClass": "DAE System",
     "index": "Index-1",
-    "repositoryLink": "link1"
+    "repositoryLink": "https://github.com/uddinmonir/systemDATA/tree/main/2nd_order/dae"
   },
   {
     "dataClass": "Generalized System",
     "index": "Index-2",
-    "repositoryLink": "link2"
+    "repositoryLink": "https://github.com/uddinmonir/systemDATA/tree/main/1st_order/generalized"
   },
   {
     "dataClass": "DAE System",
     "index": "Index-3",
-    "repositoryLink": "link3"
+    "repositoryLink": "https://github.com/uddinmonir/systemDATA/tree/main/2nd_order/dae"
   },
   {
     "dataClass": "Generalized System",
     "index": "Index-1",
-    "repositoryLink": "link1"
+    "repositoryLink": "https://github.com/uddinmonir/systemDATA/tree/main/1st_order/generalized"
   },
   {
     "dataClass": "DAE System",
     "index": "Index-2",
-    "repositoryLink": "link2"
+    "repositoryLink": "https://github.com/uddinmonir/systemDATA/tree/main/2nd_order/dae"
   },
   {
     "dataClass": "Generalized System",
     "index": "Index-3",
-    "repositoryLink": "link3"
+    "repositoryLink": "https://github.com/uddinmonir/systemDATA/tree/main/1st_order/generalized"
   }
 ]

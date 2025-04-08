@@ -2,7 +2,9 @@
 import { useState, useEffect } from "react";
 import { Users } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import teamMembersData from "../data/teamMembers.json";
+import advisorTestimonials from "../data/advisorTestimonials.json";
 import Banner from "../Shared/Banner";
 import Card from "../components/ui/card";
 import { getUniquePositions } from "../utils/getUniquePositions";
@@ -11,6 +13,7 @@ const TeamMembers = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedPosition, setSelectedPosition] = useState("All");
   const [filteredMembers, setFilteredMembers] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
   
   const positions = getUniquePositions(teamMembersData);
   
@@ -45,10 +48,75 @@ const TeamMembers = () => {
     setFilteredMembers(filtered);
   }, [selectedPosition]);
 
+  // Add auto-sliding effect
+  useEffect(() => {
+    if (selectedPosition === "Advisor") {
+      const timer = setInterval(() => {
+        setCurrentIndex((prevIndex) => 
+          (prevIndex === advisorTestimonials.testimonials.length - 1 ? 0 : prevIndex + 1)
+        );
+      }, 5000);
+
+      return () => clearInterval(timer);
+    }
+  }, [selectedPosition]);
+
   return (
-    <div>
-      <Banner bannerText={"Peoples"} bannerBg={"/team.png"} bannerIcon={Users} />
-      
+    <div className="w-full">
+      <Banner bannerText={"Team Members"} bannerBg={"/team.jpg"} bannerIcon={Users} />
+
+      {/* Add Advisor Testimonials Slider */}
+      {selectedPosition === "Advisor" && (
+        <div className="py-20 bg-secondary/5">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12 text-primary">Our Advisor's Insights</h2>
+            <div className="relative w-full max-w-4xl mx-auto overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-white p-8 rounded-xl shadow-lg"
+                >
+                  <div className="flex items-center gap-6 mb-6">
+                    <img
+                      src={advisorTestimonials.testimonials[currentIndex].photo}
+                      alt={advisorTestimonials.testimonials[currentIndex].name}
+                      className="w-20 h-20 object-cover rounded-full"
+                    />
+                    <div>
+                      <h4 className="text-xl font-semibold">
+                        {advisorTestimonials.testimonials[currentIndex].name}
+                      </h4>
+                      <p className="text-gray-600">
+                        {advisorTestimonials.testimonials[currentIndex].designation}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-lg italic">
+                    &ldquo;{advisorTestimonials.testimonials[currentIndex].comment}&rdquo;
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+
+              <div className="flex justify-center gap-2 mt-6">
+                {advisorTestimonials.testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentIndex ? "bg-primary w-4" : "bg-gray-300"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="container w-11/12 mx-auto py-8">
         {/* Position Filter Tabs */}
         <div className="flex overflow-x-auto">
